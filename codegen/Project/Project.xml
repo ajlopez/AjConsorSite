@@ -4,6 +4,7 @@
 	<Prefix>AjConsorSite</Prefix>
 	<Domain>com.ajlopez</Domain>
 	<CompanyName>ajlopez</CompanyName>
+	<HasUsers>true</HasUsers>
 	<Model>
 		<Entities>
 			<Entity Source="Entities/Consorcio.xml"/>
