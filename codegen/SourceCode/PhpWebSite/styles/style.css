@@ -14,7 +14,8 @@ P {
 H1 {
 	Font-Family: Arial, sans-serif;
 	Font-size: 16pt;
-	color: #0080d0;
+//	color: #0080d0;
+	color: #0040A0;
 }
 
 H2 {
@@ -61,8 +62,12 @@ XMP {
 
 .sitetitle {
 	font-size: 32pt;
-	color: rgb(0,0,128);
+	color: #0040A0;
 	font-weight: bold;
+}
+
+A.sitetitle {
+	text-decoration: none;	
 }
 
 .title {

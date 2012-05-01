@@ -8,8 +8,11 @@
 
 <tr height=60>
 <td class="sitetitle" align="left">
-<a href="<? echo PageMain(); ?>" target="_top">
+<a  class="sitetitle" href="<? echo $Page->Prefix ?><? echo PageMain(); ?>" target="_top">
+<div class='sitetitle'><?= $Cfg['SiteName'] ?></div>
+<!--
 <img src="<? echo $Page->Prefix; ?>images/<?= $Cfg['SiteLogo'] ?>" border=0>
+-->
 </a>
 </td>
 <td>

@@ -13,5 +13,5 @@ for each Model in Project.Models
 end for
 
 TransformerManager.Transform("Templates/MySql/EntitiesSql.tpl","${Project.BuildDir}/Sql/Database.sql",Environment)
-TransformerManager.Transform("Templates/MySql/CreateDatabase.tpl","${Project.BuildDir}/Sql/CreateDatabase.bat",Environment)
+TransformerManager.Transform("Templates/MySql/CreateDatabase.tpl","${Project.BuildDir}/Sql/CreateDatabase.cmd",Environment)
 #>

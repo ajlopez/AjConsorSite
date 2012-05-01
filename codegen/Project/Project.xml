@@ -1,6 +1,6 @@
 <Project>
 	<Name>AjConsorSite</Name>
-	<Description>Sitio de Consorcios</Description>
+	<Description>Sitio de Consorcios y Negocios Inmobiliarios</Description>
 	<Prefix>AjConsorSite</Prefix>
 	<Domain>com.ajlopez</Domain>
 	<CompanyName>ajlopez</CompanyName>

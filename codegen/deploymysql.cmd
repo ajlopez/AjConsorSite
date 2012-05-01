@@ -1,1 +1,0 @@
-Build\AjComprobantes\Php\Sql\CreateDataBase.bat
