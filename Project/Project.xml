@@ -1,0 +1,26 @@
+<Project>
+	<Name>AjConsorSite</Name>
+	<Description>Sitio de Consorcios</Description>
+	<Prefix>AjConsorSite</Prefix>
+	<Domain>com.ajlopez</Domain>
+	<CompanyName>ajlopez</CompanyName>
+	<Model>
+		<Entities>
+			<Entity Source="Entities/Consorcio.xml"/>
+			<Entity Source="Entities/Unidad.xml"/>
+			<Entity Source="Entities/Documento.xml"/>
+		</Entities>
+		<Lists>
+			<List Entity="Consorcio" />
+			<List Entity="Unidad" />
+		</Lists>
+		<Forms>
+			<Form Entity="Consorcio" />
+			<Form Entity="Unidad" />
+		</Forms>
+		<Views>
+			<View Entity="Consorcio" />
+			<View Entity="Unidad" />
+		</Views>
+	</Model>
+</Project>
