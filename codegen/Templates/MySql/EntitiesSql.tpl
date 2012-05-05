@@ -41,13 +41,13 @@ create table ${Technology.Database.Prefix}${Entity.SqlTable} (
 		${EntityIdProperty.SqlColumn} int NOT NULL auto_increment,
 <# 
 for each Property in EntityNoIdSqlProperties
-#>	
+#>
 		${Property.SqlColumn} ${Property.SqlType},
 <#
 end for
 #>
 		primary key (${EntityIdProperty.SqlColumn})
-);
+) TYPE=InnoDB;
 
 <#
 end for
