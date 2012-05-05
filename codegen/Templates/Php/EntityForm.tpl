@@ -158,6 +158,11 @@
 	FieldMemoGenerate("${Field.Property.Name}","${Field.Description}",$${Field.Property.Name},${Field.Rows},${Field.Cols},${Field.Required});
 <#
 			end if
+			if Field.Type="Boolean" then
+#>
+	FieldCheckGenerate("${Field.Property.Name}","${Field.Description}",$${Field.Property.Name},${Field.Required});
+<#
+			end if
 		end if
 		end if
 	end for

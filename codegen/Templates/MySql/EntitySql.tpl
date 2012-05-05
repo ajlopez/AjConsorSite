@@ -42,5 +42,5 @@ for each Property in EntityNoIdSqlProperties
 end for
 #>
 		primary key (${EntityIdProperty.SqlColumn})
-);
+) TYPE=InnoDB;
 
