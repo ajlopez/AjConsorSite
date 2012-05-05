@@ -19,13 +19,13 @@
 		$rs = ExecuteQuery($sql);
 		$row = NextRow($rs);
 		$Description = $row['Description'];
-		$PageTitle = "Actualiza $Entity->Name $Description";
+		$Page->Title = "Actualiza $Entity->Name $Description";
 		$IsNew = 0;
 	}	
 	else if (isset($Id))
 		$IsNew = 0;
 	else {
-		$PageTitle = "Nuevo " . $Entity->Name;
+		$Page->Title = "Nuevo " . $Entity->Name;
 		$IsNew = 1;
 	}
 

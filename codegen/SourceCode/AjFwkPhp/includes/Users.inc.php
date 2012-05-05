@@ -7,7 +7,7 @@ include_once('Events.inc.php');
 function UserControl($link='') {
 	global $PHP_SELF;
 	global $HTTP_SERVER_VARS;
-	global $PagePrefix;
+	global $Page->Prefix;
 
 	$User = SessionGet("CurrentUser");
 	$UserId = $User->Id;
