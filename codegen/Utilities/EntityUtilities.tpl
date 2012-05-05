@@ -1,6 +1,6 @@
 <#
 
-rem	Rutinas de Entidades
+rem	Entity Functions
 
 function SqlProperties(Entity)
 	Props =	new System.Collections.ArrayList()
@@ -37,6 +37,20 @@ function SqlIdRefProperties(Entity)
 		end if
 	end for
 	return	Props
+end function
+
+function GetAllProperties(Entity)
+	if not Entity.Inherits then
+		Props = new System.Collections.ArrayList()
+	else
+		Props = GetAllProperties(Entity.Inherits)
+	end if
+
+	for each Prop in Entity.Properties
+		Props.Add(Prop)
+	end for
+
+	return Props
 end function
 
 function IdProperty(Entity)

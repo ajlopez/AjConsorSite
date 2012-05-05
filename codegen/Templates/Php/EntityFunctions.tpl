@@ -1,5 +1,5 @@
 <#
-	include "Templates/EntityFunctions.tpl"
+	include "Utilities/EntityUtilities.tpl"
 #>
 <?
 

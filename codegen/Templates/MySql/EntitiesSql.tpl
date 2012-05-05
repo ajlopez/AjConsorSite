@@ -3,7 +3,7 @@
 rem		Generador de Scripts SQL
 rem		MySql
 
-include "Templates/EntityFunctions.tpl"
+include "Utilities/EntityUtilities.tpl"
 
 #>
 

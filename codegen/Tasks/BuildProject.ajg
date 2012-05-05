@@ -7,8 +7,8 @@
 
 PrintLine "Completing Project ${Project.Name}"
 
-include "Templates/EntityFunctions.tpl"
-include "Templates/Utilities.tpl"
+include "Utilities/EntityUtilities.tpl"
+include "Utilities/Utilities.tpl"
 
 if not Project.Title then
 	Project.Title = Project.Name
@@ -87,7 +87,7 @@ for each Entity in Project.Model.Entities
 		end if
 
 		if Property.Enumeration then
-			Property.Enumeration = GetItem(Project.Model.Enumerations,Property.Enumeration)			
+			Property.Enumeration = GetItemWithName(Project.Model.Enumerations,Property.Enumeration)			
 		end if
 
 		if not Property.Description then
