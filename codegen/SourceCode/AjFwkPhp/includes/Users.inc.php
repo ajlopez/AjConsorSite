@@ -119,7 +119,7 @@ function UserLogout() {
 	SessionDestroy();
 }
 
-function UserTranslate($Id) {
+function UserTranslateId($Id) {
 	global $UsersTable;
 
 	if (!$Id)

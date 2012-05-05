@@ -14,7 +14,7 @@
 	if (empty($Password))
 		ErrorShow('Debe ingresar Contraseña');
 
-	Connect();
+	DbConnect();
 
 	$sql = "Select * from $Cfg[SqlPrefix]users where UserName = '$UserName'";
 	$res = mysql_query($sql);
@@ -34,7 +34,7 @@
 
 	UserLogin($user);
 
-	Disconnect();
+	DbDisconnect();
 
 	$UserLink = SessionGet("UserLink");
 	SessionRemove("UserLink");

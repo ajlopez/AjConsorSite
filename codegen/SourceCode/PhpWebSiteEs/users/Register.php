@@ -9,7 +9,7 @@
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 
-	Connect();
+	DbConnect();
 
 	$rsCountries = mysql_query('select Id, Description from $Cfg[SqlPrefix]countries');
 	$IdGenre = 1;
@@ -18,7 +18,7 @@
 <center>
 <p>
 
-Gracias por querer participar de nuestros cursos a distancia. Por favor, complete los datos del siguiente formulario.
+Para ser usuario de este sitio, complete los datos del siguiente formulario.
 Tenga en cuenta que su c&oacute;digo y contrase&ntilde;a le ser&aacute;n requeridos cada vez que quiera
 ingresar a las secciones privadas del sitio. Los campos marcados con <font color=red>*</font> son obligatorios.
 
@@ -84,7 +84,7 @@ function FormValidate(thisform)
 	FieldTextGenerate("City","Ciudad",$City,40);
 	FieldTextGenerate("ZipCode","Código Postal",$ZipCode,10);
 	FieldDateGenerate("DateBorn","Fecha de Nacimiento",$DateBorn);
-	FieldGenreGenerate("IdGenre","Sexo", $IdSexo,true);
+	FieldGenreGenerate("Genre","Género", $IdSexo,true);
 		$ArregloNosConoce = array('' => '', 'MA' => 'Por un correo electr&oacute;nico',
 			'RE' => 'Recomendaci&oacute;n de un amigo',
 			'PU' => 'Publicidad en Internet',
@@ -101,7 +101,7 @@ function FormValidate(thisform)
 </center>
 
 <?
-	Disconnect();
-	include_once($Page->Prefix.'includes/footer.inc.php');
+	DbDisconnect();
+	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
 
