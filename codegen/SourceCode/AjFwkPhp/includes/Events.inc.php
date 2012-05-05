@@ -40,7 +40,7 @@ function EventWrite($parameter,$type='PG',$idpar=0) {
 
 function EventPage($idpar=0, $ispage='') {
 	if (!$ispage)
-		$page = PageActual();
+		$page = PageCurrent();
 	else
 		$page = $ispage;
 

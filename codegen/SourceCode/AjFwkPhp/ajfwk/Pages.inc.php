@@ -2,13 +2,10 @@
 	include_once('Random.inc.php');
 
 function PageCurrent() {
-	global $SCRIPT_NAME;
-	global $QUERY_STRING;
+	$link = $_SERVER['SCRIPT_NAME'];
 
-	$link = $SCRIPT_NAME;
-
-	if ($QUERY_STRING)
-		$link .= "?$QUERY_STRING";
+	if ($_SERVER['QUERY_STRING'])
+		$link .= '?' . $_SERVER['QUERY_STRING'];
 
 	return $link;
 }

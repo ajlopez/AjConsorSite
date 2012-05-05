@@ -16,7 +16,7 @@
 
 	Connect();
 	
-	SessionPut($Entity->Entity . 'Link',PageActual());
+	SessionPut($Entity->Entity . 'Link',PageCurrent());
 
 	if (!isset($Id))
 		PageExit();

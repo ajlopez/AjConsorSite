@@ -15,7 +15,7 @@
 
 	Connect();
 	
-	SessionPut($Entity->Descriptor . 'Link',PageActual());
+	SessionPut($Entity->Descriptor . 'Link',PageCurrent());
 
 	if (!isset($Id))
 		PageExit();

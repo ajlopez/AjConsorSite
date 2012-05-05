@@ -11,7 +11,7 @@
 
 	Connect();
 
-	SessionPut($Entity->Descriptor . 'Link',PageActual());
+	SessionPut($Entity->Descriptor . 'Link',PageCurrent());
 
 	$sql = "select " . $Entity->GetFieldList() . " from $Cfg[SqlPrefix]$Entity->Table order by 1";	 
 	$rs = ExecuteQuery($sql);
