@@ -1,10 +1,12 @@
 <?
 	$Page->Prefix = '../';
-	include_once($Page->Prefix.'includes/connection.inc.php');
-	include_once($Page->Prefix.'includes/users.inc.php');
-	include_once($Page->Prefix.'includes/session.inc.php');
-	include_once($Page->Prefix.'includes/errors.inc.php');
-	include_once($Page->Prefix.'includes/postparameters.inc.php');
+	
+	include_once($Page->Prefix.'ajfwk/Database.inc.php');
+	include_once($Page->Prefix.'ajfwk/Session.inc.php');
+	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
+	include_once($Page->Prefix.'ajfwk/PostParameters.inc.php');
+	
+	include_once($Page->Prefix.'includes/Users.inc.php');
 
 	if (empty($UserName))
 		ErrorShow('Debe ingresar Código');
@@ -14,7 +16,7 @@
 
 	Connect();
 
-	$sql = "Select * from users where UserName = '$UserName'";
+	$sql = "Select * from $Cfg[SqlPrefix]users where UserName = '$UserName'";
 	$res = mysql_query($sql);
 
 	if (!$res || mysql_num_rows($res)==0) {

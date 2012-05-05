@@ -8,7 +8,7 @@
 
 PrintLine "Completing Technology in Project ${Project.Name}"
 
-include "Utilities/Utilities.tpl"
+include "Utilities/Utilities.ajg"
 
 if not Technology then
 	Technology = CreateObject()

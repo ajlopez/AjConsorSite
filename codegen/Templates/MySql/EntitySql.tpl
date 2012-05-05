@@ -6,7 +6,7 @@ rem		MySql
 
 message	"Generando Scripts SQL de Entidad ${Entity.Name}..."
 
-include "Utilities/EntityUtilities.tpl"
+include "Utilities/EntityUtilities.ajg"
 
 EntitySqlProperties	= SqlProperties(Entity)
 EntityNoIdSqlProperties	= SqlNoIdProperties(Entity)

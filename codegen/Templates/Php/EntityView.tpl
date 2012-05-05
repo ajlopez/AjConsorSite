@@ -1,5 +1,5 @@
 <#
-	include "Utilities/EntityUtilities.tpl"
+	include "Utilities/EntityUtilities.ajg"
 
 	Entity = View.Entity
 	EntityIdProperty = IdProperty(Entity)

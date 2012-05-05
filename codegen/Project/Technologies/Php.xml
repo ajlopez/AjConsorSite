@@ -1,4 +1,6 @@
 <Technology>
+	<UserInterface Language="es">
+	</UserInterface>
 	<Programming>
 		<Dialect>Php</Dialect>
 		<Strategy>Functions</Strategy>

@@ -3,15 +3,15 @@
 	$Page->Prefix = '../';
 	$FileJs = 'utilities.js';
 
-	include_once($Page->Prefix.'includes/header.inc.php');
-	include_once($Page->Prefix.'includes/errors.inc.php');
-	include_once($Page->Prefix.'includes/forms.inc.php');
+	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
+	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
+	include_once($Page->Prefix.'ajfwk/Database.inc.php');
 
-	include_once($Page->Prefix.'includes/connection.inc.php');
+	include_once($Page->Prefix.'includes/Header.inc.php');
 
 	Connect();
 
-	$rsCountries = mysql_query('select Id, Description from countries');
+	$rsCountries = mysql_query('select Id, Description from $Cfg[SqlPrefix]countries');
 	$IdGenre = 1;
 	$IdCountry = 1;
 ?>

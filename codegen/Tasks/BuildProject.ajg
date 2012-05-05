@@ -7,8 +7,9 @@
 
 PrintLine "Completing Project ${Project.Name}"
 
-include "Utilities/EntityUtilities.tpl"
-include "Utilities/Utilities.tpl"
+include "Utilities/EntityUtilities.ajg"
+include "Utilities/Utilities.ajg"
+include "Utilities/FileUtilities.ajg"
 
 if not Project.Title then
 	Project.Title = Project.Name

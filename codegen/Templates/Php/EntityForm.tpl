@@ -1,5 +1,5 @@
 <#
-	include "Utilities/EntityUtilities.tpl"
+	include "Utilities/EntityUtilities.ajg"
 
 	Entity = Form.Entity
 #>

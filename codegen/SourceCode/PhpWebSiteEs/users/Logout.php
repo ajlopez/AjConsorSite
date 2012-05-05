@@ -1,7 +1,7 @@
 <?
 	$Page->Prefix = '../';
-	include($Page->Prefix.'includes/pages.inc.php');
-	include($Page->Prefix.'includes/users.inc.php');
+	include($Page->Prefix.'ajfwk/Pages.inc.php');
+	include($Page->Prefix.'ajfwk/Users.inc.php');
 
 	UserLogout();
 

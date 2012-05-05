@@ -1,14 +1,16 @@
 <?
 	$Page->Title = "Ingreso de Usuario";
 	$Page->Prefix = '../';
-	include_once($Page->Prefix.'includes/Header.inc.php');
+
 	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
+	
+	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
 <center>
 
 <p>
-Por favor, ingrese su c&oacute;digo de usuario y su contrase&ntilde;a.
+Ingrese su c&oacute;digo de usuario y su contrase&ntilde;a.
 </p>
 
 <p>
@@ -33,6 +35,6 @@ Si no es usuario, puede <a href="Register.php">registrarse</a> gratuitamente en 
 </center>
 
 <?
-	include_once($Page->Prefix.'includes/footer.inc.php');
+	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
 

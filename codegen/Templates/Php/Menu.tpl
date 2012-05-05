@@ -61,8 +61,9 @@ function MenuLeftClose()
 	end for
 #>
 	MenuLeftClose();
-/*
-	TODO: User Login and Register
+<#
+	if Project.HasUsers then
+#>
 
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
@@ -79,5 +80,7 @@ function MenuLeftClose()
 		MenuLeftOption('Register','users/Register.php');
 		MenuLeftClose();
 	}
-*/
+<#
+	end if
+#>
 ?>
