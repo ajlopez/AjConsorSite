@@ -197,15 +197,9 @@
 <br>
 <br>
 <h2>${List.Title}</h2>
-<p>
-<#
-	if List.CanInsert then
-#>
+<div>
 <a href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>Nuevo ${List.Entity.Descriptor}...</a>
-<#
-	end if
-#>
-<p>
+</div>
 <?
 	$sql = "select <# 
 		print EntityIdProperty.Name
@@ -318,7 +312,13 @@
 #>
 <center>
 <h2>${Relation.Entity.SetDescriptor}</h2>
+<div>
+<a href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>New ${Relation.Entity.Descriptor}...</a>
+</div>
 
+<br />
+
+<div>
 <?
 	$rs${Relation.Entity.SetName} = ${Relation.Entity.Name}GetBy${Entity.Name}($${Entity.IdProperty.Name});
 
@@ -361,11 +361,11 @@
 		RowClose();
 	}
 
-
 	TableClose();	
 
 	DbFreeResult($rs${Relation.Entity.SetName});
 ?>
+</div>
 <#
 	end for
 #>

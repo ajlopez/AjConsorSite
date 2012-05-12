@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <Entity>
 	<Name>Consorcio</Name>
 	<Description>Consorcio</Description>
@@ -21,6 +22,25 @@
 
 		<Property>
 			<Name>Domicilio</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Ciudad</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Provincia</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Pais</Name>
+			<Description>País</Description>
 			<Type>Text</Type>
 			<SqlType>varchar(200)</SqlType>
 		</Property>

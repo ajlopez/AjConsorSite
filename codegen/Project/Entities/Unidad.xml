@@ -20,6 +20,19 @@
 		</Property>
 
 		<Property>
+			<Name>Piso</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(20)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Numero</Name>
+			<Description>Nro/Letra</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(20)</SqlType>
+		</Property>
+
+		<Property>
 			<Name>IdConsorcio</Name>
 			<Type>IdRef</Type>
 			<SqlType>int</SqlType>

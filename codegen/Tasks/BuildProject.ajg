@@ -254,7 +254,7 @@ for each Form in Project.Model.Forms
 	if not Form.Fields then
 		Form.Fields = CreateList()
 	
-		for each Property in Form.Entity.Properties where not Property.Hidden and not Property.ReadOnly
+		for each Property in Form.Entity.Properties where not Property.Hidden and not Property.ReadOnly and not Property.Subtype = "Uuid"
 			fld = CreateObject()
 			fld.Property = Property.Name
 			Form.Fields.Add(fld)
@@ -267,10 +267,21 @@ for each Form in Project.Model.Forms
 			Field.Description = Field.Property.Description
 		end if
 		if not Field.Type then
-			Field.Type = "Text"
+			Field.Type = Field.Property.Type
+		end if
+		if not Field.Size then
+			if Field.Property.Size then
+				Field.Size = Field.Property.Size
+			else
+				Field.Size = 30
+			end if
 		end if
 		if not Field.Required then
-			Field.Required = false
+			if Field.Property.Required then
+				Field.Required = Field.Property.Required
+			else
+				Field.Required = false
+			end if
 		else
 			Field.Required = true
 		end if

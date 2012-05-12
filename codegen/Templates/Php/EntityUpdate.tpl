@@ -72,6 +72,13 @@
 		$sql .= ", ${Property.Name} = '$${Property.Name}'";
 <#
 	end for
+
+	for each Property in Form.Entity.Properties where Property.Subtype = "Uuid"
+#>
+		$${Property.Name} = uniqid();
+		$sql .= ", ${Property.Name} = '$${Property.Name}'";
+<#
+	end for
 #>
 	}
 	else

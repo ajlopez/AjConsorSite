@@ -102,7 +102,6 @@
 		<Property>
 			<Name>Verified</Name>
 			<Description>Verificado</Description>
-			<ReadOnly>true</ReadOnly>
 			<Type>Boolean</Type>
 			<SqlType>tinyint(4)</SqlType>
 		</Property>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Entity>
+	<Name>DocumentoConsorcio</Name>
+	<Description>Documento de Consorcio</Description>
+	<SetName>DocumentosConsorcio</SetName>
+	<Descriptor>Documento de Consorcio</Descriptor>
+	<SetDescriptor>Documentos de Consorcio</SetDescriptor>
+	<SqlTable>documentosconsorcio</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>Nombre</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>NombreArchivo</Name>
+			<Description>Nombre de Archivo</Description>
+			<Type>Text</Type>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>Uuid</Name>
+			<Description>Código Interno</Description>
+			<Type>Text</Type>
+			<Subtype>Uuid</Subtype>
+			<SqlType>varchar(200)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>IdConsorcio</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Consorcio</Reference>
+		</Property>
+	</Properties>
+</Entity>

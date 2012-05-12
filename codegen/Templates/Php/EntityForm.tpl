@@ -129,38 +129,32 @@
 	for each Field in Form.Fields where Field.Property.Type<>"Id"
 		if Field.Property.Reference then
 #>
-	FieldComboRsGenerate("${Field.Property.Name}","${Field.Description}",$rs${Field.Property.Name},$${Field.Property.Name},"${Field.Property.Reference.IdProperty.Name}","${Field.Property.Reference.DescriptorProperty.Name}",false,${Field.Required});
+	FieldComboRsGenerate("${Field.Property.Name}", "${Field.Description}", $rs${Field.Property.Name}, $${Field.Property.Name},"${Field.Property.Reference.IdProperty.Name}","${Field.Property.Reference.DescriptorProperty.Name}", false, ${Field.Required});
 <#
 		else
 		if Field.Property.Enumeration then
 #>
-	FieldComboHashGenerate("${Field.Property.Name}","${Field.Description}",$Enum${Field.Property.Enumeration.Name},$${Field.Property.Name},false,${Field.Required});
+	FieldComboHashGenerate("${Field.Property.Name}", "${Field.Description}", $Enum${Field.Property.Enumeration.Name}, $${Field.Property.Name}, false, ${Field.Required});
 <#
 		else
 			if Field.Type="Text" then
-				if not Field.Size then
-					Field.Size = 30
-				end if
 #>
-	FieldTextGenerate("${Field.Property.Name}","${Field.Description}",$${Field.Property.Name},${Field.Size},${Field.Required});
+	FieldTextGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Size}, ${Field.Required});
 <#
 			end if
 			if Field.Type="Password" then
-				if not Field.Size then
-					Field.Size = 30
-				end if
 #>
-	FieldPasswordGenerate("${Field.Property.Name}","${Field.Description}",$${Field.Property.Name},${Field.Size},${Field.Required});
+	FieldPasswordGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Size}, ${Field.Required});
 <#
 			end if
 			if Field.Type="Memo" then
 #>
-	FieldMemoGenerate("${Field.Property.Name}","${Field.Description}",$${Field.Property.Name},${Field.Rows},${Field.Cols},${Field.Required});
+	FieldMemoGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Rows}, ${Field.Cols}, ${Field.Required});
 <#
 			end if
 			if Field.Type="Boolean" then
 #>
-	FieldCheckGenerate("${Field.Property.Name}","${Field.Description}",$${Field.Property.Name},${Field.Required});
+	FieldCheckGenerate("${Field.Property.Name}", "${Field.Description}", $${Field.Property.Name}, ${Field.Required});
 <#
 			end if
 		end if
