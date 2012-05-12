@@ -34,8 +34,16 @@ PrintLine "Creating PHP Project ${Project.Name}"
 for each Entity in Project.Model.Entities	
 	if Technology.Programming.Strategy="Functions" then
 		TransformFile("Templates/Php/EntityFunctions.tpl", "${Project.BuildDir}/Web/includes/${Entity.Name}Functions.inc.php", TransformerManager, Environment)
+        
+        if Project.HasTests then
+            TransformFile("Templates/Php/EntityFunctionsTests.tpl", "${Project.BuildDir}/Web/tests/${Entity.Name}FunctionsTests.php", TransformerManager, Environment)
+        end if
 	end if
 end for
+
+if Project.HasTests and Technology.Programming.Strategy = "Functions" then
+    TransformFile("Templates/Php/AllFunctionsTests.tpl", "${Project.BuildDir}/Web/tests/AllFunctionsTests.php", TransformerManager, Environment)
+end if
 
 for each List in Project.Model.Lists
 	TransformFile("Templates/Php/EntityList.tpl", "${Project.BuildDir}/Web/${WebDir}${List.Entity.Name}List.php", TransformerManager, Environment)
