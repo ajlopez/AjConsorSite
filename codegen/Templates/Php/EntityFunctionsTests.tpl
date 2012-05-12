@@ -15,7 +15,7 @@ function GetTestValues(Entity)
 end function
 
 function GetTestValue(Property)
-    if Property.Type = "Text" then
+    if Property.Type = "Text" or Property.Type = "Memo" then
         return "'" + Property.Name + "'"
     end if
     
@@ -36,7 +36,7 @@ function GetTestNewValues(Entity)
 end function
 
 function GetTestNewValue(Property)
-    if Property.Type = "Text" then
+    if Property.Type = "Text" or Property.Type = "Memo" then
         return "'New " + Property.Name + "'"
     end if
     
