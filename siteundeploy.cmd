@@ -1,0 +1,1 @@
+rmdir \xampp\htdocs\AjConsorSite
