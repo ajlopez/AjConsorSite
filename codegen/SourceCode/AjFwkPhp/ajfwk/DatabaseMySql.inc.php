@@ -60,4 +60,16 @@ function DbLastId() {
 	return mysql_insert_id();
 }
 
+function DbTransactionBegin() {
+    mysql_query('BEGIN');
+}
+
+function DbTransactionCommit() {
+    mysql_query('COMMIT');
+}
+
+function DbTransactionRollback() {
+    mysql_query('ROLLBACK');
+}
+
 ?>

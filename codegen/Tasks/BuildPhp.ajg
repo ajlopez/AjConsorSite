@@ -8,6 +8,11 @@ FileManager.CreateDirectory("${Project.BuildDir}")
 FileManager.CreateDirectory("${Project.BuildDir}/Web")
 FileManager.CreateDirectory("${Project.BuildDir}/Web/includes")
 
+if Project.HasTests then
+    FileManager.CreateDirectory("${Project.BuildDir}/Web/tests")
+    FileManager.CreateDirectory("${Project.BuildDir}/Web/simpletest")
+end if
+
 if Project.HasUsers then
 	FileManager.CreateDirectory("${Project.BuildDir}/Web/admin")
 	FileManager.CreateDirectory("${Project.BuildDir}/Web/users")
@@ -57,5 +62,9 @@ TransformFile("Templates/Php/Index.tpl", "${Project.BuildDir}/Web/index.php", Tr
 TransformFile("Templates/Php/Menu.tpl", "${Project.BuildDir}/Web/includes/MenuLeft.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Configuration.tpl", "${Project.BuildDir}/Web/includes/Configuration.inc.php", TransformerManager, Environment)
 TransformFile("Templates/Php/Enumerations.tpl", "${Project.BuildDir}/Web/includes/Enumerations.inc.php", TransformerManager, Environment)
+
+if Project.HasTests then
+    CopyDirectory("SourceCode/simpletest", "${Project.BuildDir}/Web/simpletest", false)
+end if
 
 #>
