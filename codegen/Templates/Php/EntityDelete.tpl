@@ -11,6 +11,7 @@
 	end if
 #>
 	include_once('./Security.inc.php');
+	
 	include_once($Page->Prefix.'ajfwk/GetParameters.inc.php');
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
@@ -32,7 +33,7 @@
 	if ($Link)
 		PageAbsoluteRedirect($Link);
 	else
-		PageRedirect('${Entity.Name}List.php');
+		PageAbsoluteRedirect('${Entity.Name}List.php');
 
 	exit;
 ?>

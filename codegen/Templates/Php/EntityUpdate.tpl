@@ -31,6 +31,7 @@
 	end for
 #>
 	DbConnect();
+	DbTransactionBegin();
 
 	if (ErrorHas()) {
 		DbDisconnect();
@@ -61,12 +62,36 @@
 	end for
 #>
 		";
+		
+	if (empty($Id))
+	{
+<#
+	for each Property in Form.Entity.Properties where Property.Subtype = "CreationDateTime"
+#>
+		$${Property.Name} = date('Y-m-d H:i:s');
+		$sql .= ", ${Property.Name} = '$${Property.Name}'";
+<#
+	end for
+#>
+	}
+	else
+	{
+<#
+	for each Property in Form.Entity.Properties where Property.Subtype = "UpdateDateTime"
+#>
+		$${Property.Name} = date('Y-m-d H:i:s');
+		$sql .= ", ${Property.Name} = '$${Property.Name}'";
+<#
+	end for
+#>
+	}
 
 	if (!empty($Id))
 		$sql .= " where Id=$Id";
 
 	DbExecuteUpdate($sql);
 
+	DbTransactionCommit();
 	DbDisconnect();
 
 	$Link = SessionGet("${Entity.Name}Link");
