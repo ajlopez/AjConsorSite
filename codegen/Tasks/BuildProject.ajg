@@ -136,7 +136,7 @@ for each List in Project.Model.Lists
 	if not List.Columns then
 		List.Columns = CreateList()
 
-		for each Property in List.Entity.Properties
+		for each Property in List.Entity.Properties where not Property.Hidden
 			col = CreateObject()
 			col.Property = Property.Name
 			List.Columns.Add(col)
@@ -172,7 +172,7 @@ for each View in Project.Model.Views
 	if not View.Fields then
 		View.Fields = CreateList()
 	
-		for each Property in View.Entity.Properties
+		for each Property in View.Entity.Properties where not Property.Hidden
 			fld = CreateObject()
 			fld.Property = Property.Name
 			View.Fields.Add(fld)
@@ -254,7 +254,7 @@ for each Form in Project.Model.Forms
 	if not Form.Fields then
 		Form.Fields = CreateList()
 	
-		for each Property in Form.Entity.Properties
+		for each Property in Form.Entity.Properties where not Property.Hidden and not Property.ReadOnly
 			fld = CreateObject()
 			fld.Property = Property.Name
 			Form.Fields.Add(fld)

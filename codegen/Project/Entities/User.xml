@@ -25,6 +25,8 @@
 			<Name>Password</Name>
 			<Description>Contraseña</Description>
 			<Type>Text</Type>
+			<Subtype>Password</Subtype>
+			<Hidden>true</Hidden>
 			<SqlType>varchar(200)</SqlType>
 		</Property>
 
@@ -66,16 +68,18 @@
 		<Property>
 			<Name>DateTimeInsert</Name>
 			<Description>Fecha/Hora Creación</Description>
-			<ReadOnly>true</ReadOnly>
 			<Type>DateTime</Type>
+			<ReadOnly>true</ReadOnly>
+			<Subtype>CreationDateTime</Subtype>
 			<SqlType>datetime</SqlType>
 		</Property>
 
 		<Property>
 			<Name>DateTimeUpdate</Name>
 			<Description>Fecha/Hora Ultima Actualización</Description>
-			<ReadOnly>true</ReadOnly>
 			<Type>DateTime</Type>
+			<ReadOnly>true</ReadOnly>
+			<Subtype>UpdateDateTime</Subtype>
 			<SqlType>datetime</SqlType>
 		</Property>
 
