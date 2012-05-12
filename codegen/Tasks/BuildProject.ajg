@@ -269,6 +269,7 @@ for each Form in Project.Model.Forms
 		if not Field.Type then
 			Field.Type = Field.Property.Type
 		end if
+		
 		if not Field.Size then
 			if Field.Property.Size then
 				Field.Size = Field.Property.Size
@@ -276,6 +277,23 @@ for each Form in Project.Model.Forms
 				Field.Size = 30
 			end if
 		end if
+		
+		if not Field.Rows then
+			if Field.Property.Rows then
+				Field.Rows = Field.Property.Rows
+			else
+				Field.Rows = 10
+			end if
+		end if
+		
+		if not Field.Cols then
+			if Field.Property.Cols then
+				Field.Cols = Field.Property.Cols
+			else
+				Field.Cols = 30
+			end if
+		end if
+		
 		if not Field.Required then
 			if Field.Property.Required then
 				Field.Required = Field.Property.Required
@@ -285,6 +303,8 @@ for each Form in Project.Model.Forms
 		else
 			Field.Required = true
 		end if
+		
+		
 	end for
 end for
 

@@ -45,5 +45,11 @@
 			<SqlType>varchar(200)</SqlType>
 		</Property>
 
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
+
 	</Properties>
 </Entity>

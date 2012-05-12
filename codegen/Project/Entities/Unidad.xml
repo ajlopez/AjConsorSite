@@ -38,6 +38,12 @@
 			<SqlType>int</SqlType>
 			<Reference>Consorcio</Reference>
 		</Property>
+
+		<Property>
+			<Name>Notas</Name>
+			<Type>Memo</Type>
+			<SqlType>text</SqlType>
+		</Property>
 		
 	</Properties>
 </Entity>
