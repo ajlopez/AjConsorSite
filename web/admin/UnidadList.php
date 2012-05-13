@@ -28,7 +28,7 @@
 <center>
 
 <p>
-<a href="UnidadForm.php">New Unidad...</a>
+<a href="UnidadForm.php">Nueva Unidad...</a>
 <p>
 
 <?		

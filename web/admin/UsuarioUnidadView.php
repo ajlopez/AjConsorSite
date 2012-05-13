@@ -1,5 +1,5 @@
 <?
-	$Page->Title = 'Unidad';
+	$Page->Title = 'Usuario Unidad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -14,26 +14,24 @@
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
-	include_once($Page->Prefix.'includes/UnidadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
-	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
 
 	DbConnect();
 	
-	SessionPut('UnidadLink',PageCurrent());
+	SessionPut('UsuarioUnidadLink',PageCurrent());
 
 
 	if (!isset($Id))
 		PageExit();
 
-	$rs = UnidadGetById($Id);
-	$Nombre = $rs['Nombre'];
-	$Piso = $rs['Piso'];
-	$Numero = $rs['Numero'];
+	$rs = UsuarioUnidadGetById($Id);
+	$IdUser = $rs['IdUser'];
 	$IdConsorcio = $rs['IdConsorcio'];
-	$Notas = $rs['Notas'];
+	$IdUnidad = $rs['IdUnidad'];
 
+	$TranslationIdUser = "<a href='UserView.php?Id=".$IdUser. "'>".TranslateDescription("$Cfg[SqlPrefix]users",$IdUser,"UserName","Id")."</a>";
 	$TranslationIdConsorcio = "<a href='ConsorcioView.php?Id=".$IdConsorcio. "'>".TranslateDescription("$Cfg[SqlPrefix]consorcios",$IdConsorcio,"Nombre","Id")."</a>";
+	$TranslationIdUnidad = "<a href='UnidadView.php?Id=".$IdUnidad. "'>".TranslateDescription("$Cfg[SqlPrefix]unidades",$IdUnidad,"Nombre","Id")."</a>";
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
@@ -41,13 +39,13 @@
 <center>
 
 <p>
-<a href="UnidadList.php">Unidades</a>
+<a href="UsuarioUnidadList.php">Usuarios Unidades</a>
 &nbsp;
 &nbsp;
-<a href="UnidadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="UsuarioUnidadForm.php?Id=<? echo $Id; ?>">Update</a>
 &nbsp;
 &nbsp;
-<a href="UnidadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="UsuarioUnidadDelete.php?Id=<? echo $Id; ?>">Delete</a>
 </p>
 
 <p>
@@ -55,46 +53,15 @@
 <table cellspacing=1 cellpadding=2 class="form" width="80%">
 <?
 	FieldStaticGenerate("Id",$Id);
-	FieldStaticGenerate("Nombre",$Nombre);
-	FieldStaticGenerate("Piso",$Piso);
-	FieldStaticGenerate("Nro/Letra",$Numero);
+	FieldStaticGenerate("Usuario",$TranslationIdUser);
 	FieldStaticGenerate("Consorcio",$TranslationIdConsorcio);
-	FieldStaticGenerate("Notas",$Notas);
+	FieldStaticGenerate("Unidad",$TranslationIdUnidad);
 ?>
 </table>
 
 
 </center>
 
-<center>
-<h2>Usuarios de la Unidad</h2>
-<div>
-<a href='UsuarioUnidadForm.php?IdUnidad=<?=$Id?>'>Nuevo Usuario de Unidad</a>
-</div>
-
-<br />
-
-<div>
-<?
-	$rsUsuarioUnidades = UsuarioUnidadGetByUnidad($Id);
-
-	$titles = array('Id', 'Usuario');
-
-	TableOpen($titles,"98%");
-
-	while ($reg=DbNextRow($rsUsuarioUnidades)) {
-		RowOpen();
-		DatumLinkGenerate($reg['Id'],"UsuarioUnidadView.php?Id=".$reg['Id']);
-		$ColumnDescription = UserTranslate($reg['IdUser']);
-		DatumLinkGenerate($ColumnDescription, "UserView.php?Id=".$reg['IdUser']);
-		RowClose();
-	}
-
-	TableClose();	
-
-	DbFreeResult($rsUsuarioUnidades);
-?>
-</div>
 
 <?
 	DbDisconnect();

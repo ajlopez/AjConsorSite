@@ -13,6 +13,7 @@ include_once('./ConsorcioFunctionsTests.php');
 include_once('./UnidadFunctionsTests.php');
 include_once('./UserFunctionsTests.php');
 include_once('./DocumentoConsorcioFunctionsTests.php');
+include_once('./UsuarioUnidadFunctionsTests.php');
 
 class AllFunctionsTests extends TestSuite {
     function __construct() {
@@ -21,6 +22,7 @@ class AllFunctionsTests extends TestSuite {
         $this->add(new UnidadFunctionsTests());
         $this->add(new UserFunctionsTests());
         $this->add(new DocumentoConsorcioFunctionsTests());
+        $this->add(new UsuarioUnidadFunctionsTests());
     }
 }
 ?>

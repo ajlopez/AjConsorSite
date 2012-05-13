@@ -15,6 +15,7 @@
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
 
 	DbConnect();
 	
@@ -48,10 +49,10 @@
 <a href="UserList.php">Usuarios</a>
 &nbsp;
 &nbsp;
-<a href="UserForm.php?Id=<? echo $Id; ?>">Update</a>
+<a href="UserForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="UserDelete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="UserDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </p>
 
 <p>
@@ -77,6 +78,32 @@
 
 </center>
 
+<center>
+<h2>Unidades del Usuario</h2>
+<div>
+<a href='UsuarioUnidadForm.php?IdUser=<?=$Id?>'>Nueva Unidad de Usuario</a>
+</div>
+
+<br />
+
+<div>
+<?
+	$rsUsuarioUnidades = UsuarioUnidadGetByUser($Id);
+
+	$titles = array();
+
+	TableOpen($titles,"98%");
+
+	while ($reg=DbNextRow($rsUsuarioUnidades)) {
+		RowOpen();
+		RowClose();
+	}
+
+	TableClose();	
+
+	DbFreeResult($rsUsuarioUnidades);
+?>
+</div>
 
 <?
 	DbDisconnect();

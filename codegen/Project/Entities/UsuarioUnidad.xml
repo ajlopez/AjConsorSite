@@ -1,0 +1,38 @@
+<Entity>
+	<Name>UsuarioUnidad</Name>
+	<Description>Usuario Unidad</Description>
+	<SetName>UsuarioUnidades</SetName>
+	<Descriptor>Usuario Unidad</Descriptor>
+	<SetDescriptor>Usuarios Unidades</SetDescriptor>
+	<SqlTable>userunidades</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>IdUser</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>User</Reference>
+		</Property>
+
+		<Property>
+			<Name>IdConsorcio</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Consorcio</Reference>
+		</Property>
+
+		<Property>
+			<Name>IdUnidad</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>Unidad</Reference>
+		</Property>
+		
+	</Properties>
+</Entity>

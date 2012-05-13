@@ -17,6 +17,8 @@
 	include_once($Page->Prefix.'includes/ConsorcioFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UnidadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/DocumentoConsorcioFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
 
 	DbConnect();
 	
@@ -44,10 +46,10 @@
 <a href="ConsorcioList.php">Consorcios</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioForm.php?Id=<? echo $Id; ?>">Update</a>
+<a href="ConsorcioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioDelete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="ConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </p>
 
 <p>
@@ -70,7 +72,7 @@
 <center>
 <h2>Unidades</h2>
 <div>
-<a href='UnidadForm.php?IdConsorcio=<?=$Id?>'>New Unidad...</a>
+<a href='UnidadForm.php?IdConsorcio=<?=$Id?>'>Nueva Unidad</a>
 </div>
 
 <br />
@@ -101,7 +103,7 @@
 <center>
 <h2>Documentos de Consorcio</h2>
 <div>
-<a href='DocumentoConsorcioForm.php?IdConsorcio=<?=$Id?>'>New Documento de Consorcio...</a>
+<a href='DocumentoConsorcioForm.php?IdConsorcio=<?=$Id?>'>Nuevo Documento de Consorcio</a>
 </div>
 
 <br />
@@ -128,6 +130,37 @@
 	TableClose();	
 
 	DbFreeResult($rsDocumentosConsorcio);
+?>
+</div>
+<center>
+<h2>Usuarios de Unidades</h2>
+<div>
+<a href='UsuarioUnidadForm.php?IdConsorcio=<?=$Id?>'>Nuevo Usuario de Unidad</a>
+</div>
+
+<br />
+
+<div>
+<?
+	$rsUsuarioUnidades = UsuarioUnidadGetByConsorcio($Id);
+
+	$titles = array('Id', 'Unidad', 'Usuario');
+
+	TableOpen($titles,"98%");
+
+	while ($reg=DbNextRow($rsUsuarioUnidades)) {
+		RowOpen();
+		DatumLinkGenerate($reg['Id'],"UsuarioUnidadView.php?Id=".$reg['Id']);
+		$ColumnDescription = UnidadTranslate($reg['IdUnidad']);
+		DatumLinkGenerate($ColumnDescription, "UnidadView.php?Id=".$reg['IdUnidad']);
+		$ColumnDescription = UserTranslate($reg['IdUser']);
+		DatumLinkGenerate($ColumnDescription, "UserView.php?Id=".$reg['IdUser']);
+		RowClose();
+	}
+
+	TableClose();	
+
+	DbFreeResult($rsUsuarioUnidades);
 ?>
 </div>
 

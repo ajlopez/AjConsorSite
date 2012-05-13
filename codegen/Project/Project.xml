@@ -12,6 +12,7 @@
 			<Entity Source="Entities/Unidad.xml"/>
 			<Entity Source="Entities/User.xml"/>
 			<Entity Source="Entities/DocumentoConsorcio.xml"/>
+			<Entity Source="Entities/UsuarioUnidad.xml"/>
 		</Entities>
 		<Lists>
 			<List Entity="Consorcio" />
@@ -24,12 +25,13 @@
 			<Form Entity="Unidad" />
 			<Form Entity="DocumentoConsorcio" />
 			<Form Entity="User" />
+			<Form Entity="UsuarioUnidad" />
 		</Forms>
 		<Views>
 			<View Entity="Consorcio" />
 			<View Entity="Unidad" />
 			<View Entity="DocumentoConsorcio" />
-			<View Entity="User" />
-		</Views>
+			<View Entity="UsuarioUnidad" />
+		</Views>		
 	</Model>
 </Project>

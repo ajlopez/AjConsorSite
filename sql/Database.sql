@@ -95,3 +95,21 @@ create table documentosconsorcio (
 		primary key (Id)
 ) TYPE=InnoDB;
 
+
+--
+--		Entity:		UsuarioUnidad
+--		Description:	Usuario Unidad
+--
+
+
+drop table if exists userunidades;
+
+
+create table userunidades (
+		Id int NOT NULL auto_increment,
+		IdUser int,
+		IdConsorcio int,
+		IdUnidad int,
+		primary key (Id)
+) TYPE=InnoDB;
+

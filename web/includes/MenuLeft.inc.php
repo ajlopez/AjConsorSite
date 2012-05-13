@@ -49,10 +49,10 @@ function MenuLeftClose()
 <?
 
 	MenuLeftOpen($Cfg['SiteName']);
-	MenuLeftOption('Main','index.php');
+	MenuLeftOption('Principal','index.php');
 	MenuLeftClose();
 
-	MenuLeftOpen('Entities');
+	MenuLeftOpen('Datos');
 	MenuLeftOption('Consorcios','admin/ConsorcioList.php');
 	MenuLeftOption('Unidades','admin/UnidadList.php');
 	MenuLeftOption('Documentos de Consorcio','admin/DocumentoConsorcioList.php');
@@ -61,17 +61,17 @@ function MenuLeftClose()
 
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
-		MenuLeftOption('My Page', 'users/User.php');
+		MenuLeftOption('Mi P&aacute;gina', 'users/User.php');
 		If (UserIsAdministrator()) {
 			MenuLeftOption('Administrator','admin/index.php');
 		}
-		MenuLeftOption('Logout','users/Logout.php');
+		MenuLeftOption('Salir','users/Logout.php');
 		MenuLeftClose();
 	}
 	else {
-		MenuLeftOpen('Users');
-		MenuLeftOption('Login','users/Login.php');
-		MenuLeftOption('Register','users/Register.php');
+		MenuLeftOpen('Usuarios');
+		MenuLeftOption('Ingresar','users/Login.php');
+		MenuLeftOption('Registraci&oacute;n','users/Register.php');
 		MenuLeftClose();
 	}
 ?>

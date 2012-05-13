@@ -27,7 +27,7 @@
 <center>
 
 <p>
-<a href="ConsorcioForm.php">New Consorcio...</a>
+<a href="ConsorcioForm.php">Nuevo Consorcio...</a>
 <p>
 
 <?		
