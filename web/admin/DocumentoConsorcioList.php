@@ -28,7 +28,7 @@
 <center>
 
 <p>
-<a href="DocumentoConsorcioForm.php">New Documento de Consorcio...</a>
+<a href="DocumentoConsorcioForm.php">Nuevo Documento de Consorcio</a>
 <p>
 
 <?		

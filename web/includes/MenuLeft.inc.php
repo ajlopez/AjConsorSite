@@ -61,7 +61,7 @@ function MenuLeftClose()
 
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
-		MenuLeftOption('Mi P&aacute;gina', 'users/User.php');
+		MenuLeftOption('Mis Datos', 'users/User.php');
 		If (UserIsAdministrator()) {
 			MenuLeftOption('Administrator','admin/index.php');
 		}

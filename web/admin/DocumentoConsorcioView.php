@@ -43,10 +43,10 @@
 <a href="DocumentoConsorcioList.php">Documentos de Consorcio</a>
 &nbsp;
 &nbsp;
-<a href="DocumentoConsorcioForm.php?Id=<? echo $Id; ?>">Update</a>
+<a href="DocumentoConsorcioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="DocumentoConsorcioDelete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="DocumentoConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </p>
 
 <p>

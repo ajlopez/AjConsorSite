@@ -79,20 +79,6 @@ function FormValidate(thisform)
 	FieldTextGenerate("FirstName","Nombre",$FirstName,40);
 	FieldTextGenerate("LastName","Apellido",$LastName,40);
 	FieldTextGenerate("Email","Email",$Email,50,true);
-	FieldComboRsGenerate("IdCountry", "Pais", $rsCountries, $IdCountry, 'Id', 'Description',true,true);
-	FieldTextGenerate("State","Provincia/Estado",$State,30);
-	FieldTextGenerate("City","Ciudad",$City,40);
-	FieldTextGenerate("ZipCode","Código Postal",$ZipCode,10);
-	FieldDateGenerate("DateBorn","Fecha de Nacimiento",$DateBorn);
-	FieldGenreGenerate("Genre","Género", $IdSexo,true);
-		$ArregloNosConoce = array('' => '', 'MA' => 'Por un correo electr&oacute;nico',
-			'RE' => 'Recomendaci&oacute;n de un amigo',
-			'PU' => 'Publicidad en Internet',
-			'NO' => 'Nota de Prensa en Medios',
-			'EN' => 'Enlace en Otro Sitio',
-			'OT' => 'Otros');
-	FieldComboHashGenerate("Reference","¿C&oacute;mo conoci&oacute; ajlopez.com y sus cursos?", $ArregloNosConoce, $Reference);
-	FieldMemoGenerate("Comments","Comentarios<br>por favor, ingrese lo que espera del sitio,<br>sugerencias, cr&iacute;ticas, todo nos ayuda<br>a mejorar el servicio", $Comentarios);
 ?>
 </table>
 <input type="submit" value="Aceptar">
