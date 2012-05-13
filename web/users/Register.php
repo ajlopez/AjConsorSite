@@ -70,7 +70,7 @@ function FormValidate(thisform)
 
 </script>
 
-<form action="registerupdate.php" method=post onsubmit="return FormValidate(this);">
+<form action="RegisterUpdate.php" method=post onsubmit="return FormValidate(this);">
 <table cellspacing=1 cellpadding=2 class="form">
 <?
 	FieldTextGenerate("UserName","Código de Usuario",$UserName,16,true);

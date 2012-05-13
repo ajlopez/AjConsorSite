@@ -15,7 +15,7 @@ Ingrese su c&oacute;digo de usuario y su contrase&ntilde;a.
 
 <p>
 
-<form action="loginvalidate.php" method=post>
+<form action="LoginValidate.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="form">
 <?
