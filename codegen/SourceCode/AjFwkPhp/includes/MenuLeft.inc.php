@@ -1,16 +1,12 @@
 <?
 	include_once($Page->Prefix.'includes/Users.inc.php');
 ?>
-<br>
-
-<center>
-
 <?
 function MenuLeftOpen($title)
 {
 ?>
-<p>
-<table class="menu" cellspacing=1 cellpadding=2 width="95%">
+<div>
+<table class="menu" cellspacing=1 cellpadding=2>
 <tr>
 <td align=center class="menutitle">
 <? echo $title; ?>
@@ -36,11 +32,9 @@ function MenuLeftClose()
 </td>
 </tr>
 </table>
-
-<br>
 <br>
 
-</p>
+</div>
 
 <?
 }
@@ -54,17 +48,17 @@ function MenuLeftClose()
 
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
-		MenuLeftOption('Su P&aacute;gina', 'users/User.php');
+		MenuLeftOption('Your Profile', 'users/User.php');
 		If (UserIsAdministrator()) {
-			MenuLeftOption('Administrador','admin/index.php');
+			MenuLeftOption('Administrator','admin/index.php');
 		}
-		MenuLeftOption('Salir','users/Logout.php');
+		MenuLeftOption('Logout','users/Logout.php');
 		MenuLeftClose();
 	}
 	else {
-		MenuLeftOpen('Usuario');
-		MenuLeftOption('Ingrese','users/Login.php');
-		MenuLeftOption('Registrarse','users/Register.php');
+		MenuLeftOpen('User');
+		MenuLeftOption('Login','users/Login.php');
+		MenuLeftOption('Register','users/Register.php');
 		MenuLeftClose();
 	}
 

@@ -3,20 +3,18 @@
 ?>
 <br>
 
-<center>
-
 <?
 function MenuLeftOpen($title)
 {
 ?>
-<p>
-<table class="menu" cellspacing=1 cellpadding=2 width="95%">
+<div>
+<table class="menu" cellspacing=1 cellpadding=2>
 <tr>
 <td align=center class="menutitle">
 <? echo $title; ?>
 </td>
 </tr>
-</tr>
+<tr>
 <td valign="top" class="menuoption">
 <?
 }
@@ -38,9 +36,8 @@ function MenuLeftClose()
 </table>
 
 <br>
-<br>
 
-</p>
+</div>
 
 <?
 }

@@ -2,45 +2,18 @@
 	include_once($Page->Prefix.'ajfwk/Configuration.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 ?>
-<body bgcolor=#ffffff leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
+<body>
 
-<table width="100%" class="top" cellspacing=0 cellpadding=0 border=0>
+<div id="header">
+<?= $Cfg['SiteName'] ?>
+</div>
 
-<tr height=60>
-<td class="sitetitle" align="left">
-<a  class="sitetitle" href="<? echo $Page->Prefix ?><? echo PageMain(); ?>" target="_top">
-<div class='sitetitle'><?= $Cfg['SiteName'] ?></div>
-<!--
-<img src="<? echo $Page->Prefix; ?>images/<?= $Cfg['SiteLogo'] ?>" border=0>
--->
-</a>
-</td>
-<td>
-</td>
-</tr>
-</table>
-
-<table width=100% cellspacing=0 cellpadding=0 border=0>
-
-<tr height=24 bgcolor=black>
-<td class="topheader" align=right>
-<b><? echo $Cfg['SiteDescription'] ?></b>&nbsp;&nbsp;&nbsp;&nbsp;
-</td>
-</tr>
-
-</table>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr>
-<td width=150 height=500 valign="top" class="left">
+<div id="subheader">
+<? echo $Cfg['SiteDescription'] ?>
+</div>
+<div id=menu>
 <? include_once("MenuLeft.inc.php"); ?>
-</td>			
+</div>			
 
-<td valign="top">
-
-<table width=100% cellspacing=10 border=0 cellpadding=0>
-<tr>
-<td>
-
-<p>
-<h1 align="center"><? echo $Page->Title ?></h1>
+<div id=content>
+<h1><? echo $Page->Title ?></h1>

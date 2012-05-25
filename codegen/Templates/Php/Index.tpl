@@ -4,13 +4,13 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<p>
+<div>
 Site example, using <a href='http://ajgenesis.codeplex.com'>AjGenesis</a>,
  <a href="http://www.php.net">PHP</a> and <a href="http://www.mysql.com">MySql</a>.
-</p>
-<p>
+</div>
+<div>
 Created by <a href="http://www.ajlopez.com">www.ajlopez.com</a>.
-</p>
+</div>
 
 
 <?

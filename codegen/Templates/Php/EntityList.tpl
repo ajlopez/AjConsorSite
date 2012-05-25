@@ -83,11 +83,9 @@
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="${Entity.Name}Form.php">New ${Entity.Descriptor}...</a>
-<p>
+</div>
 
 <?		
 	TableOpen($titles,"98%");
@@ -121,8 +119,6 @@
 
 	TableClose();
 ?>
-
-</center>
 
 <?
 	include_once($Page->Prefix . 'includes/Footer.inc.php');

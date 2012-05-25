@@ -150,9 +150,7 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="${Entity.Name}List.php">${Entity.SetDescriptor}</a>
 &nbsp;
 &nbsp;
@@ -160,12 +158,10 @@
 &nbsp;
 &nbsp;
 <a href="${Entity.Name}Delete.php?Id=<? echo $Id; ?>">Delete</a>
-</p>
+</div>
 
-<p>
-
-<table cellspacing=1 cellpadding=2 class="form" width="80%">
 <?
+	TableOpen('', '80%');
 <#
 	for each Field in View.Fields
 		if Field.Property.Reference or Field.Property.Enumeration then
@@ -186,8 +182,8 @@
 		end if
 	end for
 #>
+	TableClose();
 ?>
-</table>
 
 <#
 	for each List in View.Lists
@@ -197,8 +193,8 @@
 <br>
 <br>
 <h2>${List.Title}</h2>
-<div>
-<a href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>Nuevo ${List.Entity.Descriptor}...</a>
+<div class="actions">
+<a href='${List.Entity.Name}Form.php?${List.KeyProperty.Name}=<?=$Id?>'>New ${List.Entity.Descriptor}...</a>
 </div>
 <?
 	$sql = "select <# 
@@ -298,21 +294,17 @@
 	TableClose();
 ?>
 
-
 <#
 	end for
 #>
-
-</center>
 
 <#
 	nrel = 0
 	for each Relation in Entity.Relations where Relation.RelationType="Referenced"
 		nrel = nrel+1
 #>
-<center>
 <h2>${Relation.Entity.SetDescriptor}</h2>
-<div>
+<div class="actions">
 <a href='${Relation.Entity.Name}Form.php?${Relation.Property.Name}=<?=$Id?>'>New ${Relation.Entity.Descriptor}...</a>
 </div>
 
