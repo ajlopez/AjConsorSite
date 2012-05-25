@@ -9,6 +9,7 @@
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
+	include_once($Page->Prefix.'ajfwk/Tables.inc.php');
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
@@ -40,9 +41,7 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="UserList.php">Usuarios</a>
 &nbsp;
 &nbsp;
@@ -55,19 +54,17 @@
 <?
 	}
 ?>
-</p>
+</div>
 
 
 <?
 	ErrorRender();
 ?>
 
-<p>
-
 <form action="UserUpdate.php" method=post>
 
-<table cellspacing=1 cellpadding=2 class="form">
 <?
+	TableOpen();
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
@@ -81,17 +78,13 @@
 	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
 
 	FieldOkGenerate();
-?>
-</table>
+	TableClose();
 
-<?
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
-
-</center>
 
 <?
 	DbDisconnect();

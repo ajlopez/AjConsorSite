@@ -37,9 +37,7 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="DocumentoConsorcioList.php">Documentos de Consorcio</a>
 &nbsp;
 &nbsp;
@@ -47,12 +45,10 @@
 &nbsp;
 &nbsp;
 <a href="DocumentoConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
-</p>
+</div>
 
-<p>
-
-<table cellspacing=1 cellpadding=2 class="form" width="80%">
 <?
+	TableOpen('','80%');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Descripción",$Descripcion);
@@ -60,14 +56,8 @@
 	FieldStaticGenerate("Código Interno",$Uuid);
 	FieldStaticGenerate("Consorcio",$TranslationIdConsorcio);
 	FieldStaticGenerate("Notas",$Notas);
-?>
-</table>
+	TableClose();
 
-
-</center>
-
-
-<?
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

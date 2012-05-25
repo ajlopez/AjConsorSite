@@ -2,9 +2,9 @@
 
 function TableOpen($titles='',$width='') {
 	if ($width)
-		echo "<table width='$width' cellspacing=1 cellpadding=2 class='form'>\n";
+		echo "<table width='$width'>\n";
 	else
-		echo "<table cellspacing=1 cellpadding=2 class='form'>\n";	
+		echo "<table>\n";	
 
 	if (is_array($titles)) {
 		echo "<tr>\n";
@@ -13,9 +13,9 @@ function TableOpen($titles='',$width='') {
 
 		while (list($k,$v) = each($titles))
 			if ($v)
-				echo "<td class='title' align='center'>$v</td>";
+				echo "<th>$v</td>";
 			else
-				echo "<td>&nbsp;</td>";
+				echo "<th>&nbsp;</td>";
 
 		echo "</tr>\n";
 	}
@@ -30,7 +30,7 @@ function TableClose() {
 }*/
 
 function RowOpen() {
-	  echo "<tr class='datum'>\n";
+	  echo "<tr>\n";
 }
 
 
@@ -68,11 +68,11 @@ function DatumLinkGenerate($datum,$link,$align='left',$target='') {
 }*/
 
 function DatumGenerate($datum,$align='left',$colspan=1) {
-    echo "<td  colspan=$colspan valign='top' align=$align>$datum&nbsp;</td>\n";
+    echo "<td colspan=$colspan valign='top' align=$align>$datum&nbsp;</td>\n";
 }
 
 function DatumNumGenerate($datum) {
-    echo "<td  align='right'>$datum&nbsp;</td>\n";
+    echo "<td align='right'>$datum&nbsp;</td>\n";
 }
 
 function DatumCurrencyGenerate($datum) {
@@ -82,7 +82,7 @@ function DatumCurrencyGenerate($datum) {
 function DatumLinkGenerate($datum,$link,$align='left',$target='') {
 	if (!$datum)
 		$datum='&nbsp;';
-	echo "<td  align='$align'><a href='$link'";
+	echo "<td align='$align'><a href='$link'";
 	if ($target)
 		echo " target='$target'";
 	echo ">$datum</a>&nbsp;</td>\n";

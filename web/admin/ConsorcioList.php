@@ -24,14 +24,12 @@
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="ConsorcioForm.php">Nuevo Consorcio...</a>
-<p>
+</div>
 
 <?		
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
@@ -47,8 +45,6 @@
 
 	TableClose();
 ?>
-
-</center>
 
 <?
 	include_once($Page->Prefix . 'includes/Footer.inc.php');

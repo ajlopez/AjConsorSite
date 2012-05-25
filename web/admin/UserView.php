@@ -43,9 +43,7 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="UserList.php">Usuarios</a>
 &nbsp;
 &nbsp;
@@ -53,12 +51,10 @@
 &nbsp;
 &nbsp;
 <a href="UserDelete.php?Id=<? echo $Id; ?>">Elimina</a>
-</p>
+</div>
 
-<p>
-
-<table cellspacing=1 cellpadding=2 class="form" width="80%">
 <?
+	TableOpen();
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Código",$UserName);
 	FieldStaticGenerate("Nombre",$FirstName);
@@ -72,15 +68,11 @@
 	FieldStaticGenerate("Cantidad de Ingresos",$LoginCount);
 	FieldStaticGenerate("Verificado",$Verified);
 	FieldStaticGenerate("Notas",$Notas);
+	TableClose();
 ?>
-</table>
 
-
-</center>
-
-<center>
 <h2>Unidades del Usuario</h2>
-<div>
+<div class="actions">
 <a href='UsuarioUnidadForm.php?IdUser=<?=$Id?>'>Nueva Unidad de Usuario</a>
 </div>
 

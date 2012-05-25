@@ -38,9 +38,7 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="UnidadList.php">Unidades</a>
 &nbsp;
 &nbsp;
@@ -48,27 +46,21 @@
 &nbsp;
 &nbsp;
 <a href="UnidadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
-</p>
+</div>
 
-<p>
-
-<table cellspacing=1 cellpadding=2 class="form" width="80%">
 <?
+	TableOpen('','80%');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Piso",$Piso);
 	FieldStaticGenerate("Nro/Letra",$Numero);
 	FieldStaticGenerate("Consorcio",$TranslationIdConsorcio);
 	FieldStaticGenerate("Notas",$Notas);
+	TableClose();
 ?>
-</table>
 
-
-</center>
-
-<center>
 <h2>Usuarios de la Unidad</h2>
-<div>
+<div class="actions">
 <a href='UsuarioUnidadForm.php?IdUnidad=<?=$Id?>'>Nuevo Usuario de Unidad</a>
 </div>
 

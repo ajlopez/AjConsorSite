@@ -40,9 +40,7 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div class="actions">
 <a href="ConsorcioList.php">Consorcios</a>
 &nbsp;
 &nbsp;
@@ -50,12 +48,9 @@
 &nbsp;
 &nbsp;
 <a href="ConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
-</p>
-
-<p>
-
-<table cellspacing=1 cellpadding=2 class="form" width="80%">
+</div>
 <?
+	TableOpen('','80%');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Domicilio",$Domicilio);
@@ -63,15 +58,10 @@
 	FieldStaticGenerate("Provincia",$Provincia);
 	FieldStaticGenerate("País",$Pais);
 	FieldStaticGenerate("Notas",$Notas);
+	TableClose();
 ?>
-</table>
-
-
-</center>
-
-<center>
 <h2>Unidades</h2>
-<div>
+<div class="actions">
 <a href='UnidadForm.php?IdConsorcio=<?=$Id?>'>Nueva Unidad</a>
 </div>
 
@@ -83,7 +73,7 @@
 
 	$titles = array('Id', 'Nombre', 'Piso', 'Nro/Letra', 'Notas');
 
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rsUnidades)) {
 		RowOpen();
@@ -100,9 +90,9 @@
 	DbFreeResult($rsUnidades);
 ?>
 </div>
-<center>
+
 <h2>Documentos de Consorcio</h2>
-<div>
+<div class="actions">
 <a href='DocumentoConsorcioForm.php?IdConsorcio=<?=$Id?>'>Nuevo Documento de Consorcio</a>
 </div>
 
@@ -114,7 +104,7 @@
 
 	$titles = array('Id', 'Nombre', 'Descripción', 'Nombre de Archivo', 'Código Interno', 'Notas');
 
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rsDocumentosConsorcio)) {
 		RowOpen();
@@ -132,9 +122,8 @@
 	DbFreeResult($rsDocumentosConsorcio);
 ?>
 </div>
-<center>
 <h2>Usuarios de Unidades</h2>
-<div>
+<div class="actions">
 <a href='UsuarioUnidadForm.php?IdConsorcio=<?=$Id?>'>Nuevo Usuario de Unidad</a>
 </div>
 
@@ -146,7 +135,7 @@
 
 	$titles = array('Id', 'Unidad', 'Usuario');
 
-	TableOpen($titles,"98%");
+	TableOpen($titles);
 
 	while ($reg=DbNextRow($rsUsuarioUnidades)) {
 		RowOpen();
