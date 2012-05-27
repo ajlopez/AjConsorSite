@@ -19,6 +19,7 @@
 <META name="robot" content="index, follow">
 
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>styles/style.css">
+<link rel="stylesheet" href="<? echo $Page->Prefix; ?>css/bootstrap.css">
 <?
 	if ($Page->FileJs)
 		echo "<script language='javascript' src='{$Page->Prefix}js/{$Page->FileJs}'></script>\n";

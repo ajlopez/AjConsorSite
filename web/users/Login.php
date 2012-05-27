@@ -3,30 +3,25 @@
 	$Page->Prefix = '../';
 
 	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
+	include_once($Page->Prefix.'ajfwk/Tables.inc.php');
 	
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<center>
-
-<p>
+<div>
 Ingrese su c&oacute;digo de usuario y su contrase&ntilde;a.
-</p>
-
-<p>
+</div>
 
 <form action="LoginValidate.php" method=post>
 
-<table cellspacing=1 cellpadding=2 class="form">
 <?
+	TableOpen();
 	FieldTextGenerate("UserName","Código de Usuario",$Codigo,16);
 	FieldPasswordGenerate("Password","Contraseña",$Contrasenia,16);
+	FieldOkGenerate();
+	TableClose();
 ?>
-</table>
-<input type="submit" value="Aceptar">
 </form>
-
-</p>
 
 <p>
 Si no es usuario, puede <a href="Register.php">registrarse</a> gratuitamente en l&iacute;nea.

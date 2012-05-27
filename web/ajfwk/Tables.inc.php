@@ -2,9 +2,9 @@
 
 function TableOpen($titles='',$width='') {
 	if ($width)
-		echo "<table width='$width'>\n";
+		echo "<table class='table-striped table-bordered' width='$width'>\n";
 	else
-		echo "<table>\n";	
+		echo "<table class='table-striped table-bordered'>\n";	
 
 	if (is_array($titles)) {
 		echo "<tr>\n";
@@ -13,9 +13,9 @@ function TableOpen($titles='',$width='') {
 
 		while (list($k,$v) = each($titles))
 			if ($v)
-				echo "<th>$v</td>";
+				echo "<th>$v</th>";
 			else
-				echo "<th>&nbsp;</td>";
+				echo "<th>&nbsp;</th>";
 
 		echo "</tr>\n";
 	}
