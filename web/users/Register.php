@@ -76,9 +76,9 @@ function FormValidate(thisform)
 	FieldTextGenerate("FirstName","Nombre",$FirstName,40);
 	FieldTextGenerate("LastName","Apellido",$LastName,40);
 	FieldTextGenerate("Email","Email",$Email,50,true);
+	FieldOkGenerate();
 	TableClose();
 ?>
-<input type="submit" value="Aceptar">
 </form>
 
 <?

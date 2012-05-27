@@ -352,17 +352,17 @@ function FieldCheckGenerate($name,$legend,$value,$required=false) {
 }
 
 function FieldOkGenerate() {
-		echo "<td colspan=2 class='legend' align=center><input class='btn-primary' type='submit' value='Accept'></td>\n";
+		echo "<td colspan=2 class='legend' align=center><input class='btn-primary btn-large' type='submit' value='Accept'></td>\n";
 }
 
 function FieldOkCancelGenerate() {
-	echo "<td colspan=2 class='legend' align=center><input class='btn' type='submit' name='Ok' value='Accept'>\n";
-	echo "<input type='submit' class='btn' name='Cancel' value='Cancel'></td>\n";
+	echo "<td colspan=2 class='legend' align=center><input class='btn-primary btn-large' type='submit' name='Ok' value='Accept'>\n";
+	echo "<input type='submit' class='btn-large' name='Cancel' value='Cancel'></td>\n";
 }
 
 function FieldOkDeleteGenerate() {
 	echo "<td colspan=2 class='legend' align=center><input type='submit' name='Ok' value='Accept'>\n";
-	echo "<input type='submit' name='Delete' value='Delete'></td>\n";
+	echo "<input class='btn-primary btn-large' type='submit' name='Delete' value='Delete'></td>\n";
 }
 
 function FormOpen($action='',$method='post') {
