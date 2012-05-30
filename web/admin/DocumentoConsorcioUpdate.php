@@ -1,6 +1,7 @@
 <?
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
+        
 	include_once('./Security.inc.php');
 	include_once($Page->Prefix.'ajfwk/GetParameters.inc.php');
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');
@@ -18,6 +19,19 @@
 		include('DocumentoConsorcioForm.php');
 		exit;
 	}
+    
+	if (empty($Id))
+	{
+		$Uuid = uniqid();
+    }
+    
+    if ($_FILES['Archivo'])
+    {
+        $NombreArchivo = $_FILES['Archivo']['name'];
+        $ext = pathinfo($NombreArchivo, PATHINFO_EXTENSION);
+        $filename = $Uuid . '.' . $ext;
+        copy($_FILES['Archivo']['tmp_name'], '../files/' . $filename);
+    }
 
 	if (empty($Id))
 		$sql = "Insert";
@@ -33,7 +47,6 @@
 		
 	if (empty($Id))
 	{
-		$Uuid = uniqid();
 		$sql .= ", Uuid = '$Uuid'";
 	}
 	else

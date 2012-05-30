@@ -24,6 +24,7 @@
 		$NombreArchivo = $rs['NombreArchivo'];
 		$IdConsorcio = $rs['IdConsorcio'];
 		$Notas = $rs['Notas'];
+        $Uuid = $rs['Uuid'];
 
 		$IsNew = 0;
 	}	
@@ -58,7 +59,7 @@
 	ErrorRender();
 ?>
 
-<form action="DocumentoConsorcioUpdate.php" method=post>
+<form action="DocumentoConsorcioUpdate.php" method=post enctype="multipart/form-data">
 
 <?
 	TableOpen();
@@ -68,7 +69,7 @@
 
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
 	FieldMemoGenerate("Descripcion", "Descripción", $Descripcion, 10, 30, False);
-	FieldTextGenerate("NombreArchivo", "Nombre de Archivo", $NombreArchivo, 30, False);
+	FieldFileGenerate("Archivo", "Archivo");
 	FieldComboRsGenerate("IdConsorcio", "Consorcio", $rsIdConsorcio, $IdConsorcio,"Id","Nombre", false, False);
 	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
 
@@ -78,8 +79,11 @@
 ?>
 
 <?
-	if (!$IsNew)
+	if (!$IsNew) 
+    {
 		FieldIdGenerate($Id);
+        FieldHiddenGenerate("Uuid", $Uuid);
+    }
 ?>
 
 </form>
