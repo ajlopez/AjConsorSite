@@ -49,19 +49,18 @@ function MenuLeftClose()
 	MenuLeftOption('Principal','index.php');
 	MenuLeftClose();
 
-	MenuLeftOpen('Entidades');
-	MenuLeftOption('Consorcios','admin/ConsorcioList.php');
-	MenuLeftOption('Unidades','admin/UnidadList.php');
-	MenuLeftOption('Documentos','admin/DocumentoConsorcioList.php');
-	MenuLeftOption('Usuarios','admin/UserList.php');
-	MenuLeftClose();
-
+	if (UserIdentified() && UserIsAdministrator()) {
+		MenuLeftOpen('Entidades');
+		MenuLeftOption('Consorcios','admin/ConsorcioList.php');
+		MenuLeftOption('Unidades','admin/UnidadList.php');
+		MenuLeftOption('Documentos','admin/DocumentoConsorcioList.php');
+		MenuLeftOption('Usuarios','admin/UserList.php');
+		MenuLeftClose();
+	}
+	
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
 		MenuLeftOption('Perfil', 'users/User.php');
-		If (UserIsAdministrator()) {
-			MenuLeftOption('Administrator','admin/index.php');
-		}
 		MenuLeftOption('Salir','users/Logout.php');
 		MenuLeftClose();
 	}

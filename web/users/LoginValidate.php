@@ -48,6 +48,7 @@
 	$UserLink = SessionGet("UserLink");
 	SessionRemove("UserLink");
 
-	PageAbsoluteRedirect($UserLink);
+	//PageRedirect($UserLink);
+	PageRedirect(PageMain());
 	exit;
 ?>
