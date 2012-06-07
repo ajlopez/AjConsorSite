@@ -13,6 +13,11 @@
 	DbConnect();
 	DbTransactionBegin();
 
+	if (empty($Codigo))
+		ErrorAdd('Debe ingresar Código');
+	if (empty($Nombre))
+		ErrorAdd('Debe ingresar Nombre');
+		
 	if (ErrorHas()) {
 		DbDisconnect();
 		include('ConsorcioForm.php');

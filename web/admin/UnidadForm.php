@@ -30,7 +30,7 @@
 	else if (isset($Id))
 		$IsNew = 0;
 	else {
-		$Page->Title = "Nuevo Unidad";
+		$Page->Title = "Nueva Unidad";
 		$IsNew = 1;
 	}
 
@@ -66,7 +66,7 @@
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
-	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
+	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, True);
 	FieldTextGenerate("Piso", "Piso", $Piso, 30, False);
 	FieldTextGenerate("Numero", "Nro/Letra", $Numero, 30, False);
 	FieldComboRsGenerate("IdConsorcio", "Consorcio", $rsIdConsorcio, $IdConsorcio,"Id","Nombre", false, False);

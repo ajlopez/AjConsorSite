@@ -42,7 +42,7 @@
 	$IdGenre += 0;
 
 	$sql = "Insert users set UserName = '$UserName',
-			Password = '$Password',
+			Password = Password('$Password'),
 			FirstName = '$FirstName',
 			LastName = '$LastName',
 			Email = '$Email',

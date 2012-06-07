@@ -68,7 +68,7 @@
 		FieldStaticGenerate("Id",$Id);
 
 	FieldTextGenerate("Codigo", "Código", $Codigo, 6, True);
-	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
+	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, True);
 	FieldTextGenerate("Domicilio", "Domicilio", $Domicilio, 30, False);
 	FieldTextGenerate("Ciudad", "Ciudad", $Ciudad, 30, False);
 	FieldTextGenerate("Provincia", "Provincia", $Provincia, 30, False);

@@ -18,6 +18,7 @@ drop table if exists consorcios;
 create table consorcios (
 		Id int NOT NULL auto_increment,
 		Nombre varchar(200),
+		Codigo varchar(10),
 		Domicilio varchar(200),
 		Ciudad varchar(200),
 		Provincia varchar(200),
