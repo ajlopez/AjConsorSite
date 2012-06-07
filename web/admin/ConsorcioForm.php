@@ -19,6 +19,7 @@
 	
 	if (!ErrorHas() && isset($Id)) {
 		$rs = ConsorcioGetById($Id);
+        $Codigo = $rs['Codigo'];
 		$Nombre = $rs['Nombre'];
 		$Domicilio = $rs['Domicilio'];
 		$Ciudad = $rs['Ciudad'];
@@ -66,6 +67,7 @@
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
+	FieldTextGenerate("Codigo", "Código", $Codigo, 6, True);
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
 	FieldTextGenerate("Domicilio", "Domicilio", $Domicilio, 30, False);
 	FieldTextGenerate("Ciudad", "Ciudad", $Ciudad, 30, False);

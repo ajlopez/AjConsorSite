@@ -29,6 +29,7 @@
 		PageExit();
 
 	$rs = ConsorcioGetById($Id);
+    $Codigo = $rs['Codigo'];
 	$Nombre = $rs['Nombre'];
 	$Domicilio = $rs['Domicilio'];
 	$Ciudad = $rs['Ciudad'];
@@ -51,7 +52,7 @@
 </div>
 <?
 	TableOpen('','80%');
-	FieldStaticGenerate("Id",$Id);
+	FieldStaticGenerate("Código",$Codigo);
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Domicilio",$Domicilio);
 	FieldStaticGenerate("Ciudad",$Ciudad);

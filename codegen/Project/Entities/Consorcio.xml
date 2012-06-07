@@ -21,6 +21,12 @@
 		</Property>
 
 		<Property>
+			<Name>Codigo</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(10)</SqlType>
+		</Property>
+
+		<Property>
 			<Name>Domicilio</Name>
 			<Type>Text</Type>
 			<SqlType>varchar(200)</SqlType>

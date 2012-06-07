@@ -12,7 +12,7 @@
 function ConsorcioGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Domicilio, Ciudad, Provincia, Pais, Notas from $Cfg[SqlPrefix]consorcios where Id = $Id";
+	$sql = "select Id, Nombre, Codigo, Domicilio, Ciudad, Provincia, Pais, Notas from $Cfg[SqlPrefix]consorcios where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function ConsorcioGetById($Id) {
 function ConsorcioGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Domicilio, Ciudad, Provincia, Pais, Notas from $Cfg[SqlPrefix]consorcios";
+	$sql = "select Id, Nombre, Codigo, Domicilio, Ciudad, Provincia, Pais, Notas from $Cfg[SqlPrefix]consorcios";
 
 	if ($where)
 		$sql .= " where $where";
@@ -35,7 +35,7 @@ function ConsorcioGetList($where='',$order='') {
 function ConsorcioGetListView($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Id, Nombre, Domicilio, Ciudad, Provincia, Pais, Notas from $Cfg[SqlPrefix]consorcios";
+	$sql = "select Id, Id, Nombre, Codigo, Domicilio, Ciudad, Provincia, Pais, Notas from $Cfg[SqlPrefix]consorcios";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,11 +54,12 @@ function ConsorcioGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function ConsorcioInsert($Nombre, $Domicilio, $Ciudad, $Provincia, $Pais, $Notas) {
+function ConsorcioInsert($Nombre, $Codigo, $Domicilio, $Ciudad, $Provincia, $Pais, $Notas) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]consorcios set
 		Nombre = '$Nombre',
+		Codigo = '$Codigo',
 		Domicilio = '$Domicilio',
 		Ciudad = '$Ciudad',
 		Provincia = '$Provincia',
@@ -70,11 +71,12 @@ function ConsorcioInsert($Nombre, $Domicilio, $Ciudad, $Provincia, $Pais, $Notas
 	return DbLastId();
 }
 
-function ConsorcioUpdate($Id, $Nombre, $Domicilio, $Ciudad, $Provincia, $Pais, $Notas) {
+function ConsorcioUpdate($Id, $Nombre, $Codigo, $Domicilio, $Ciudad, $Provincia, $Pais, $Notas) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]consorcios set
 		Nombre = '$Nombre',
+		Codigo = '$Codigo',
 		Domicilio = '$Domicilio',
 		Ciudad = '$Ciudad',
 		Provincia = '$Provincia',

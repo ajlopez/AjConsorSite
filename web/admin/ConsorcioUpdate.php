@@ -26,6 +26,7 @@
 
 	$sql .= " $Cfg[SqlPrefix]consorcios set
 		Nombre = '$Nombre' , 
+        Codigo = '$Codigo' , 
 		Domicilio = '$Domicilio' , 
 		Ciudad = '$Ciudad' , 
 		Provincia = '$Provincia' , 

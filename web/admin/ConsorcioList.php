@@ -17,9 +17,9 @@
 
 	DbConnect();
 
-	$rs = ConsorcioGetListView();
+	$rs = ConsorcioGetListView('','Codigo');
 
-	$titles = array('Id', 'Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'País', 'Notas');
+	$titles = array('Código', 'Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'País', 'Notas');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -33,7 +33,7 @@
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
-		DatumLinkGenerate($reg['Id'],"ConsorcioView.php?Id=".$reg['Id']);
+		DatumLinkGenerate($reg['Codigo'],"ConsorcioView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
 		DatumGenerate($reg['Domicilio']);
 		DatumGenerate($reg['Ciudad']);
