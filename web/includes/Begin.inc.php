@@ -3,9 +3,10 @@
 	include_once($Page->Prefix.'ajfwk/Session.inc.php');
 	include_once($Page->Prefix.'ajfwk/Cache.inc.php');
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title><? echo $Cfg['SiteName']; ?> - <? echo $Page->Title; ?></title>
 
 <META name="title" content="<? echo $Page->Title ?>">
