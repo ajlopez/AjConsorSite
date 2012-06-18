@@ -10,6 +10,6 @@
 		<Name>ajconsorsite</Name>
 		<Username>root</Username>
 		<Host>localhost</Host>
-		<MySql Directory="c:\xampp\mysql"/>
+		<MySql Directory="\xampp\mysql"/>
 	</Database>
 </Technology>
