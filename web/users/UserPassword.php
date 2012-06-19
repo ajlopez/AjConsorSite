@@ -23,7 +23,7 @@
 	ErrorRender();
 ?>
 
-<form action="UserUpdate.php" method=post>
+<form action="UserPasswordUpdate.php" method=post>
 
 <?
 	TableOpen();
