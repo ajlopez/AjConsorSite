@@ -9,14 +9,13 @@
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
 	include_once($Page->Prefix.'ajfwk/Validations.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
+	include_once($Page->Prefix.'includes/Users.inc.php');
 
-	if (empty($UserName))
-		ErrorAdd('Debe ingresar Código');
 	if (empty($FirstName))
 		ErrorAdd('Debe ingresar Nombre');
 	if (empty($LastName))
 		ErrorAdd('Debe ingresar Apellido');
-        
+
 	if (ErrorHas()) {
 		include('UserForm.php');
 		exit;
@@ -24,35 +23,20 @@
 
 	DbConnect();
 	DbTransactionBegin();
+    
+    $Id = UserId();
 
-	if (empty($Id))
-		$sql = "Insert";
-	else
-		$sql = "Update";
+	$sql = "Update";
 
 	$sql .= " $Cfg[SqlPrefix]users set
-		UserName = '$UserName' , 
 		FirstName = '$FirstName' , 
 		LastName = '$LastName' , 
-		Email = '$Email' , 
-		Genre = '$Genre' , 
-		IsAdministrator = '$IsAdministrator' , 
-		Verified = '$Verified' , 
-		Notas = '$Notas' 		";
+		Email = '$Email' ";
 		
-	if (empty($Id))
-	{
-		$DateTimeInsert = date('Y-m-d H:i:s');
-		$sql .= ", DateTimeInsert = '$DateTimeInsert'";
-	}
-	else
-	{
-		$DateTimeUpdate = date('Y-m-d H:i:s');
-		$sql .= ", DateTimeUpdate = '$DateTimeUpdate'";
-	}
+	$DateTimeUpdate = date('Y-m-d H:i:s');
+	$sql .= ", DateTimeUpdate = '$DateTimeUpdate'";
 
-	if (!empty($Id))
-		$sql .= " where Id=$Id";
+	$sql .= " where Id=$Id";
 
 	DbExecuteUpdate($sql);
 

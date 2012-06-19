@@ -60,7 +60,8 @@ function MenuLeftClose()
 	
 	if (UserIdentified()) {
 		MenuLeftOpen(UserName());
-		MenuLeftOption('Perfil', 'users/User.php');
+		MenuLeftOption('Mis Datos', 'users/User.php');
+		MenuLeftOption('Mis Documentos', 'users/DocumentoList.php');
 		MenuLeftOption('Salir','users/Logout.php');
 		MenuLeftClose();
 	}

@@ -44,7 +44,7 @@
 <a href="DocumentoConsorcioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="DocumentoConsorcioDownload.php?Id=<? echo $Id; ?>">Baja</a>
+<a href="DocumentoConsorcioDownload.php?Id=<? echo $Id; ?>">Baja Documento</a>
 &nbsp;
 &nbsp;
 <a href="DocumentoConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>

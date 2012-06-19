@@ -1,5 +1,5 @@
 <?
-	$Page->Title = 'Actualiza Usuario';
+	$Page->Title = 'Actualiza Mis Datos';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -12,10 +12,13 @@
 	include_once($Page->Prefix.'ajfwk/Tables.inc.php');
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 
+	include_once($Page->Prefix.'includes/Users.inc.php');
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
 
 	DbConnect();
+    
+    $Id = UserId();
 	
 	if (!ErrorHas() && isset($Id)) {
 		$rs = UserGetById($Id);
@@ -30,31 +33,9 @@
 
 		$IsNew = 0;
 	}	
-	else if (isset($Id))
-		$IsNew = 0;
-	else {
-		$Page->Title = "Nuevo Usuario";
-		$IsNew = 1;
-	}
-
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
-
-<div class="actions">
-<a href="UserList.php">Usuarios</a>
-&nbsp;
-&nbsp;
-<?
-	if (!$IsNew) {
-?>
-<a href="UserView.php?Id=<? echo $Id; ?>">Usuario</a>
-&nbsp;
-&nbsp;
-<?
-	}
-?>
-</div>
 
 
 <?
@@ -65,17 +46,11 @@
 
 <?
 	TableOpen();
-	if (!$IsNew)
-		FieldStaticGenerate("Id",$Id);
 
-	FieldTextGenerate("UserName", "Código", $UserName, 30, True);
+	FieldStaticGenerate("Código",$UserName);
 	FieldTextGenerate("FirstName", "Nombre", $FirstName, 30, True);
 	FieldTextGenerate("LastName", "Apellido", $LastName, 30, True);
 	FieldTextGenerate("Email", "Correo Electrónico", $Email, 30, False);
-	FieldTextGenerate("Genre", "Género", $Genre, 30, False);
-	FieldCheckGenerate("IsAdministrator", "Es Administrador", $IsAdministrator, False);
-	FieldCheckGenerate("Verified", "Verificado", $Verified, False);
-	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
 
 	FieldOkGenerate();
 	TableClose();
