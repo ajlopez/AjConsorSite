@@ -10,6 +10,8 @@
 	include_once($Page->Prefix.'ajfwk/Validations.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 
+	if (empty($Codigo))
+		ErrorAdd('Debe ingresar Código');
 	if (empty($Nombre))
 		ErrorAdd('Debe ingresar Nombre');
 	
@@ -28,6 +30,7 @@
 
 	$sql .= " $Cfg[SqlPrefix]unidades set
 		Nombre = '$Nombre' , 
+        Codigo = '$Codigo' , 
 		Piso = '$Piso' , 
 		Numero = '$Numero' , 
 		IdConsorcio = $IdConsorcio , 

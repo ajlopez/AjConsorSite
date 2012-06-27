@@ -20,7 +20,7 @@
 
 	$rs = UnidadGetListView();
 
-	$titles = array('Id', 'Nombre', 'Piso', 'Nro/Letra', 'Consorcio', 'Notas');
+	$titles = array('Código', 'Nombre', 'Piso', 'Nro/Letra', 'Consorcio', 'Notas');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -34,7 +34,7 @@
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
-		DatumLinkGenerate($reg['Id'],"UnidadView.php?Id=".$reg['Id']);
+		DatumLinkGenerate($reg['Codigo'],"UnidadView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
 		DatumGenerate($reg['Piso']);
 		DatumGenerate($reg['Numero']);

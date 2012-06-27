@@ -20,6 +20,12 @@
 		</Property>
 
 		<Property>
+			<Name>Codigo</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(10)</SqlType>
+		</Property>
+
+		<Property>
 			<Name>Piso</Name>
 			<Type>Text</Type>
 			<SqlType>varchar(20)</SqlType>

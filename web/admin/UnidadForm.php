@@ -19,6 +19,7 @@
 	
 	if (!ErrorHas() && isset($Id)) {
 		$rs = UnidadGetById($Id);
+        $Codigo = $rs['Codigo'];
 		$Nombre = $rs['Nombre'];
 		$Piso = $rs['Piso'];
 		$Numero = $rs['Numero'];
@@ -66,6 +67,7 @@
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
+	FieldTextGenerate("Codigo", "Código", $Codigo, 6, True);
 	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, True);
 	FieldTextGenerate("Piso", "Piso", $Piso, 30, False);
 	FieldTextGenerate("Numero", "Nro/Letra", $Numero, 30, False);

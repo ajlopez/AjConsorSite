@@ -40,6 +40,7 @@ drop table if exists unidades;
 create table unidades (
 		Id int NOT NULL auto_increment,
 		Nombre varchar(200),
+		Codigo varchar(10),
 		Piso varchar(20),
 		Numero varchar(20),
 		IdConsorcio int,

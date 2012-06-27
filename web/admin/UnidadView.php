@@ -27,6 +27,7 @@
 		PageExit();
 
 	$rs = UnidadGetById($Id);
+    $Codigo = $rs['Codigo'];
 	$Nombre = $rs['Nombre'];
 	$Piso = $rs['Piso'];
 	$Numero = $rs['Numero'];
@@ -50,7 +51,7 @@
 
 <?
 	TableOpen('','80%');
-	FieldStaticGenerate("Id",$Id);
+	FieldStaticGenerate("Código",$Codigo);
 	FieldStaticGenerate("Nombre",$Nombre);
 	FieldStaticGenerate("Piso",$Piso);
 	FieldStaticGenerate("Nro/Letra",$Numero);

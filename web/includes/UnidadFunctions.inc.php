@@ -12,7 +12,7 @@
 function UnidadGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Piso, Numero, IdConsorcio, Notas from $Cfg[SqlPrefix]unidades where Id = $Id";
+	$sql = "select Id, Nombre, Codigo, Piso, Numero, IdConsorcio, Notas from $Cfg[SqlPrefix]unidades where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function UnidadGetById($Id) {
 function UnidadGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Nombre, Piso, Numero, IdConsorcio, Notas from $Cfg[SqlPrefix]unidades";
+	$sql = "select Id, Nombre, Codigo, Piso, Numero, IdConsorcio, Notas from $Cfg[SqlPrefix]unidades";
 
 	if ($where)
 		$sql .= " where $where";
@@ -35,7 +35,7 @@ function UnidadGetList($where='',$order='') {
 function UnidadGetListView($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Id, Nombre, Piso, Numero, IdConsorcio, Notas from $Cfg[SqlPrefix]unidades";
+	$sql = "select Id, Id, Nombre, Codigo, Piso, Numero, IdConsorcio, Notas from $Cfg[SqlPrefix]unidades";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,11 +54,12 @@ function UnidadGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function UnidadInsert($Nombre, $Piso, $Numero, $IdConsorcio, $Notas) {
+function UnidadInsert($Nombre, $Codigo, $Piso, $Numero, $IdConsorcio, $Notas) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]unidades set
 		Nombre = '$Nombre',
+		Codigo = '$Codigo',
 		Piso = '$Piso',
 		Numero = '$Numero',
 		IdConsorcio = $IdConsorcio,
@@ -69,11 +70,12 @@ function UnidadInsert($Nombre, $Piso, $Numero, $IdConsorcio, $Notas) {
 	return DbLastId();
 }
 
-function UnidadUpdate($Id, $Nombre, $Piso, $Numero, $IdConsorcio, $Notas) {
+function UnidadUpdate($Id, $Nombre, $Codigo, $Piso, $Numero, $IdConsorcio, $Notas) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]unidades set
 		Nombre = '$Nombre',
+		Codigo = '$Codigo',
 		Piso = '$Piso',
 		Numero = '$Numero',
 		IdConsorcio = $IdConsorcio,
