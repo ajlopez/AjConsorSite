@@ -16,6 +16,7 @@
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/ConsorcioFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UnidadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UnidadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/DocumentoConsorcioFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
@@ -72,13 +73,13 @@
 <?
 	$rsUnidades = UnidadGetByConsorcio($Id);
 
-	$titles = array('Id', 'Nombre', 'Piso', 'Nro/Letra', 'Notas');
+	$titles = array('Código', 'Nombre', 'Piso', 'Nro/Letra', 'Notas');
 
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rsUnidades)) {
 		RowOpen();
-		DatumLinkGenerate($reg['Id'],"UnidadView.php?Id=".$reg['Id']);
+		DatumLinkGenerate($reg['Codigo'],"UnidadView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
 		DatumGenerate($reg['Piso']);
 		DatumGenerate($reg['Numero']);
@@ -134,15 +135,17 @@
 <?
 	$rsUsuarioUnidades = UsuarioUnidadGetByConsorcio($Id);
 
-	$titles = array('Id', 'Unidad', 'Usuario');
+	$titles = array('Id', 'Unidad', 'Nombre', 'Usuario');
 
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rsUsuarioUnidades)) {
 		RowOpen();
 		DatumLinkGenerate($reg['Id'],"UsuarioUnidadView.php?Id=".$reg['Id']);
-		$ColumnDescription = UnidadTranslate($reg['IdUnidad']);
+		$ColumnDescription = UnidadTranslateToCodigo($reg['IdUnidad']);
 		DatumLinkGenerate($ColumnDescription, "UnidadView.php?Id=".$reg['IdUnidad']);
+		$ColumnDescription = UnidadTranslate($reg['IdUnidad']);
+		DatumGenerate($ColumnDescription);
 		$ColumnDescription = UserTranslate($reg['IdUser']);
 		DatumLinkGenerate($ColumnDescription, "UserView.php?Id=".$reg['IdUser']);
 		RowClose();
