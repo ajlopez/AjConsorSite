@@ -56,7 +56,7 @@
 	FieldStaticGenerate("Piso",$Piso);
 	FieldStaticGenerate("Nro/Letra",$Numero);
 	FieldStaticGenerate("Consorcio",$TranslationIdConsorcio);
-	FieldStaticGenerate("Notas",$Notas);
+	FieldStaticMemoGenerate("Notas",$Notas);
 	TableClose();
 ?>
 
