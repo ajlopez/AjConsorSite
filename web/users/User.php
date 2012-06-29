@@ -50,7 +50,7 @@
 </div>
 
 <?
-	TableOpen();
+	TableOpen('', '400');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Código",$UserName);
 	FieldStaticGenerate("Nombre",$FirstName);
