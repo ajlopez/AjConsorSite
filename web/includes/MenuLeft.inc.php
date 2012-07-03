@@ -44,9 +44,8 @@ function MenuLeftClose()
 ?>
 
 <?
-
 	MenuLeftOpen($Cfg['SiteName']);
-	MenuLeftOption('Principal','index.php');
+	MenuLeftOption('Inicio','index.php');
 	MenuLeftClose();
 
 	if (UserIdentified() && UserIsAdministrator()) {
