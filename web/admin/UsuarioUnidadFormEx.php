@@ -10,18 +10,21 @@
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
 	include_once($Page->Prefix.'ajfwk/Tables.inc.php');
+	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix.'ajfwk/Translations.inc.php');
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UnidadFunctions.inc.php');
 
+	if (!$Id && !$IdUnidad)
+		PageRedirect(PageMain());
+
 	DbConnect();
 	
 	if (!ErrorHas() && isset($Id)) {
 		$rs = UsuarioUnidadGetById($Id);
 		$IdUser = $rs['IdUser'];
-		$IdConsorcio = $rs['IdConsorcio'];
 		$IdUnidad = $rs['IdUnidad'];
 
 		$IsNew = 0;
@@ -32,16 +35,18 @@
 		$Page->Title = "Nuevo Usuario Unidad";
 		$IsNew = 1;
 	}
-
+	
+	$unidad = UnidadGetById($IdUnidad);
+	$IdConsorcio = $unidad['IdConsorcio'];
+			
 	$rsIdUser = TranslateQuery("$Cfg[SqlPrefix]users","UserName as UserName");
-	$rsIdConsorcio = TranslateQuery("$Cfg[SqlPrefix]consorcios","Nombre as Nombre");
 	$rsIdUnidad = UnidadGetList('IdConsorcio = ' . $IdConsorcio, 'Codigo');
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
 <div class="actions">
-<a href="UsuarioUnidadList.php">Usuarios Unidades</a>
+<a href="UnidadView.php?Id=<?= $IdUnidad ?>">Unidad</a>
 &nbsp;
 &nbsp;
 <?
@@ -60,7 +65,7 @@
 	ErrorRender();
 ?>
 
-<form action="UsuarioUnidadUpdate.php" method=post>
+<form action="UsuarioUnidadUpdateEx.php" method=post>
 
 <?
 	TableOpen('', '400px');

@@ -15,7 +15,7 @@
 
 	if (ErrorHas()) {
 		DbDisconnect();
-		include('UsuarioUnidadForm.php');
+		include('UsuarioUnidadFormEx.php');
 		exit;
 	}
 
@@ -44,8 +44,8 @@
 	DbTransactionCommit();
 	DbDisconnect();
 
-	$Link = SessionGet("ConsorcioLink");
-	SessionRemove("ConsorcioLink");
+	$Link = SessionGet("UnidadLink");
+	SessionRemove("UnidadLink");
 
 	PageAbsoluteRedirect($Link);
 	exit;
