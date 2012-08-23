@@ -20,6 +20,7 @@
 	include_once($Page->Prefix.'includes/DocumentoConsorcioFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UsoMultipleFunctions.inc.php');
 
 	DbConnect();
 	
@@ -154,6 +155,36 @@
 	TableClose();	
 
 	DbFreeResult($rsUsuarioUnidades);
+?>
+</div>
+
+<h2>UsoMultiples</h2>
+<div class="actions">
+<a href='UsoMultipleForm.php?IdConsorcio=<?=$Id?>'>Nuevo Uso Múltiple...</a>
+</div>
+
+<br />
+
+<div>
+<?
+	$rsUsoMultiples = UsoMultipleGetByConsorcio($Id);
+
+	$titles = array('Id', 'Nombre', 'Codigo', 'Notas');
+
+	TableOpen($titles,"98%");
+
+	while ($reg=DbNextRow($rsUsoMultiples)) {
+		RowOpen();
+		DatumLinkGenerate($reg['Id'],"UsoMultipleView.php?Id=".$reg['Id']);
+		DatumGenerate($reg['Nombre']);
+		DatumGenerate($reg['Codigo']);
+		DatumGenerate($reg['Notas']);
+		RowClose();
+	}
+
+	TableClose();	
+
+	DbFreeResult($rsUsoMultiples);
 ?>
 </div>
 

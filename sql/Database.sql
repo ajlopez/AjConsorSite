@@ -115,3 +115,42 @@ create table userunidades (
 		primary key (Id)
 ) TYPE=InnoDB;
 
+--
+--		Entity:		UsoMultiple
+--		Description:	Salon de Uso Multiple
+--
+
+
+drop table if exists usomultiples;
+
+
+create table usomultiples (
+		Id int NOT NULL auto_increment,
+		Nombre varchar(200),
+		Codigo varchar(10),
+		IdConsorcio int,
+		Notas text,
+		primary key (Id)
+) TYPE=InnoDB;
+
+
+--
+--		Entity:		Reserva
+--		Description:	Reserva
+--
+
+
+drop table if exists reservas;
+
+
+create table reservas (
+		Id int NOT NULL auto_increment,
+		DesdeFecha date,
+		DesdeHora varchar(5),
+		HastaFecha date,
+		HastaHora varchar(5),
+		IdUsoMultiple int,
+		IdUser int,
+		primary key (Id)
+) TYPE=InnoDB;
+
