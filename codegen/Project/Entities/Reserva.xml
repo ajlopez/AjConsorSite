@@ -1,0 +1,55 @@
+<Entity>
+	<Name>Reserva</Name>
+	<Description>Reserva</Description>
+	<SetName>Reservas</SetName>
+	<Descriptor>Reserva</Descriptor>
+	<SetDescriptor>Reservas</SetDescriptor>
+	<SqlTable>reservas</SqlTable>
+	
+	<Properties>
+
+		<Property>
+			<Name>Id</Name>
+			<Type>Id</Type>
+		</Property>
+
+		<Property>
+			<Name>DesdeFecha</Name>
+			<Type>Date</Type>
+			<SqlType>date</SqlType>
+		</Property>
+
+		<Property>
+			<Name>DesdeHora</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(5)</SqlType>
+		</Property>
+
+		<Property>
+			<Name>HastaFecha</Name>
+			<Type>Date</Type>
+			<SqlType>date</SqlType>
+		</Property>
+
+		<Property>
+			<Name>HastaHora</Name>
+			<Type>Text</Type>
+			<SqlType>varchar(5)</SqlType>
+		</Property>
+		
+		<Property>
+			<Name>IdUsoMultiple</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>UsoMultiple</Reference>
+		</Property>
+
+		<Property>
+			<Name>IdUser</Name>
+			<Type>IdRef</Type>
+			<SqlType>int</SqlType>
+			<Reference>User</Reference>
+		</Property>
+		
+	</Properties>
+</Entity>

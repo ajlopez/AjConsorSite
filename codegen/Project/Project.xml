@@ -13,12 +13,16 @@
 			<Entity Source="Entities/User.xml"/>
 			<Entity Source="Entities/DocumentoConsorcio.xml"/>
 			<Entity Source="Entities/UsuarioUnidad.xml"/>
+			<Entity Source="Entities/UsoMultiple.xml"/>
+			<Entity Source="Entities/Reserva.xml"/>
 		</Entities>
 		<Lists>
 			<List Entity="Consorcio" />
 			<List Entity="Unidad" />
 			<List Entity="DocumentoConsorcio" />
 			<List Entity="User" />
+			<List Entity="UsoMultiple"/>
+			<List Entity="Reserva"/>
 		</Lists>
 		<Forms>
 			<Form Entity="Consorcio" />
@@ -26,12 +30,16 @@
 			<Form Entity="DocumentoConsorcio" />
 			<Form Entity="User" />
 			<Form Entity="UsuarioUnidad" />
+			<Form Entity="UsoMultiple"/>
+			<Form Entity="Reserva"/>
 		</Forms>
 		<Views>
 			<View Entity="Consorcio" />
 			<View Entity="Unidad" />
 			<View Entity="DocumentoConsorcio" />
 			<View Entity="UsuarioUnidad" />
+			<View Entity="UsoMultiple"/>
+			<View Entity="Reserva"/>
 		</Views>		
 	</Model>
 </Project>
