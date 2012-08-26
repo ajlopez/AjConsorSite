@@ -10,14 +10,18 @@
 	include_once($Page->Prefix.'ajfwk/Validations.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 
-	DbConnect();
-	DbTransactionBegin();
-
+	if (empty($Codigo))
+		ErrorAdd('Debe ingresar Código');
+	if (empty($Nombre))
+		ErrorAdd('Debe ingresar Nombre');
+		
 	if (ErrorHas()) {
-		DbDisconnect();
 		include('UsoMultipleForm.php');
 		exit;
 	}
+	
+	DbConnect();
+	DbTransactionBegin();
 
 	if (empty($Id))
 		$sql = "Insert";

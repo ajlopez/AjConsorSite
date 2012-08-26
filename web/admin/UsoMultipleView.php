@@ -1,5 +1,5 @@
 <?
-	$Page->Title = 'UsoMultiple';
+	$Page->Title = 'Uso Múltiple';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -38,13 +38,13 @@
 ?>
 
 <div class="actions">
-<a href="UsoMultipleList.php">UsoMultiples</a>
+<a href="UsoMultipleList.php">Usos Múltiples</a>
 &nbsp;
 &nbsp;
-<a href="UsoMultipleForm.php?Id=<? echo $Id; ?>">Update</a>
+<a href="UsoMultipleForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="UsoMultipleDelete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="UsoMultipleDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
 
 <?
@@ -60,7 +60,7 @@
 
 <h2>Reservas</h2>
 <div class="actions">
-<a href='ReservaForm.php?IdUsoMultiple=<?=$Id?>'>New Reserva...</a>
+<a href='ReservaForm.php?IdUsoMultiple=<?=$Id?>'>Nueva Reserva...</a>
 </div>
 
 <br />

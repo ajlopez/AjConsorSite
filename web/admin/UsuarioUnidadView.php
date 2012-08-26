@@ -20,7 +20,6 @@
 	
 	SessionPut('UsuarioUnidadLink',PageCurrent());
 
-
 	if (!isset($Id))
 		PageExit();
 
@@ -40,10 +39,10 @@
 <a href="UsuarioUnidadList.php">Usuarios Unidades</a>
 &nbsp;
 &nbsp;
-<a href="UsuarioUnidadForm.php?Id=<? echo $Id; ?>">Update</a>
+<a href="UsuarioUnidadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="UsuarioUnidadDelete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="UsuarioUnidadDelete.php?Id=<? echo $Id; ?>&IdUnidad=<? echo $IdUnidad ?>">Elimina</a>
 </div>
 
 <?
@@ -54,7 +53,6 @@
 	FieldStaticGenerate("Unidad",$TranslationIdUnidad);
 	TableClose();
 ?>
-
 
 <?
 	DbDisconnect();

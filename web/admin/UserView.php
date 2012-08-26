@@ -15,6 +15,9 @@
 
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
+	include_once($Page->Prefix.'includes/ConsorcioFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UnidadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UnidadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
 
 	DbConnect();
@@ -82,12 +85,21 @@
 <?
 	$rsUsuarioUnidades = UsuarioUnidadGetByUser($Id);
 
-	$titles = array();
+	$titles = array('Id', 'Consorcio', 'Unidad', 'Nombre', 'Usuario');
 
 	TableOpen($titles,"98%");
 
 	while ($reg=DbNextRow($rsUsuarioUnidades)) {
 		RowOpen();
+		DatumLinkGenerate($reg['Id'],"UsuarioUnidadView.php?Id=".$reg['Id']);
+		$ColumnDescription = ConsorcioTranslate($reg['IdConsorcio']);
+		DatumLinkGenerate($ColumnDescription, "ConsorcioView.php?Id=".$reg['IdConsorcio']);
+		$ColumnDescription = UnidadTranslateToCodigo($reg['IdUnidad']);
+		DatumLinkGenerate($ColumnDescription, "UnidadView.php?Id=".$reg['IdUnidad']);
+		$ColumnDescription = UnidadTranslate($reg['IdUnidad']);
+		DatumGenerate($ColumnDescription);
+		$ColumnDescription = UserTranslate($reg['IdUser']);
+		DatumLinkGenerate($ColumnDescription, "UserView.php?Id=".$reg['IdUser']);
 		RowClose();
 	}
 

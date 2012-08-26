@@ -21,7 +21,7 @@
 
 	$rs = ReservaGetListView();
 
-	$titles = array('Id', 'DesdeFecha', 'DesdeHora', 'HastaFecha', 'HastaHora', 'UsoMultiple', 'Usuario');
+	$titles = array('Id', 'Desde Fecha', 'Desde Hora', 'Hasta Fecha', 'Hasta Hora', 'Uso Múltiple', 'Usuario');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>

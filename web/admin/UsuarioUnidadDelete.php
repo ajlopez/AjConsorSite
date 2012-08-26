@@ -21,10 +21,7 @@
 	$Link = SessionGet("UsuarioUnidadDeleteLink");
 	SessionRemove("UsuarioUnidadDeleteLink");
 
-	if ($Link)
-		PageAbsoluteRedirect($Link);
-	else
-		PageAbsoluteRedirect('UsuarioUnidadList.php');
+	PageAbsoluteRedirect('UnidadView.php?Id=' . $IdUnidad);
 
 	exit;
 ?>

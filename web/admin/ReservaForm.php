@@ -68,9 +68,11 @@
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
-	FieldTextGenerate("DesdeHora", "DesdeHora", $DesdeHora, 30, False);
-	FieldTextGenerate("HastaHora", "HastaHora", $HastaHora, 30, False);
-	FieldComboRsGenerate("IdUsoMultiple", "UsoMultiple", $rsIdUsoMultiple, $IdUsoMultiple,"Id","Nombre", false, False);
+	FieldDateGenerate("DesdeFecha", "Desde Fecha", $DesdeFecha, 30, True);
+	FieldHourGenerate("DesdeHora", "Desde Hora", $DesdeHora, 30, True);
+	FieldDateGenerate("HastaFecha", "Hasta Fecha", $HastaFecha, 30, True);
+	FieldHourGenerate("HastaHora", "Hasta Hora", $HastaHora, 30, True);
+	FieldComboRsGenerate("IdUsoMultiple", "Uso Múltiple", $rsIdUsoMultiple, $IdUsoMultiple,"Id","Nombre", false, False);
 	FieldComboRsGenerate("IdUser", "Usuario", $rsIdUser, $IdUser,"Id","UserName", false, False);
 
 	FieldOkGenerate();

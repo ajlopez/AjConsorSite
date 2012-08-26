@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>styles/style.css">
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>css/bootstrap.css">
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>css/docs.css">
+<link rel="stylesheet" href="<? echo $Page->Prefix; ?>styles/styleex.css">
 <?
 	if ($Page->FileJs)
 		echo "<script language='javascript' src='{$Page->Prefix}js/{$Page->FileJs}'></script>\n";

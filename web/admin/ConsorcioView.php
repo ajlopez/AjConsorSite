@@ -25,7 +25,8 @@
 	DbConnect();
 	
 	SessionPut('ConsorcioLink',PageCurrent());
-
+	SessionPut('UnidadLink',PageCurrent());
+	SessionPut('UsoMultipleLink',PageCurrent());
 
 	if (!isset($Id))
 		PageExit();
@@ -158,7 +159,7 @@
 ?>
 </div>
 
-<h2>UsoMultiples</h2>
+<h2>Usos Múltiples</h2>
 <div class="actions">
 <a href='UsoMultipleForm.php?IdConsorcio=<?=$Id?>'>Nuevo Uso Múltiple...</a>
 </div>
@@ -169,15 +170,14 @@
 <?
 	$rsUsoMultiples = UsoMultipleGetByConsorcio($Id);
 
-	$titles = array('Id', 'Nombre', 'Codigo', 'Notas');
+	$titles = array('Código', 'Nombre', 'Notas');
 
 	TableOpen($titles,"98%");
 
 	while ($reg=DbNextRow($rsUsoMultiples)) {
 		RowOpen();
-		DatumLinkGenerate($reg['Id'],"UsoMultipleView.php?Id=".$reg['Id']);
+		DatumLinkGenerate($reg['Codigo'],"UsoMultipleView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
-		DatumGenerate($reg['Codigo']);
 		DatumGenerate($reg['Notas']);
 		RowClose();
 	}

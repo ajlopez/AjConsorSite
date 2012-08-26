@@ -1,5 +1,5 @@
 <?
-	$Page->Title = 'Actualiza UsoMultiple';
+	$Page->Title = 'Actualiza Uso Múltiple';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -29,7 +29,7 @@
 	else if (isset($Id))
 		$IsNew = 0;
 	else {
-		$Page->Title = "Nuevo UsoMultiple";
+		$Page->Title = "Nuevo Uso Múltiple";
 		$IsNew = 1;
 	}
 
@@ -39,13 +39,13 @@
 ?>
 
 <div class="actions">
-<a href="UsoMultipleList.php">UsoMultiples</a>
+<a href="UsoMultipleList.php">Usos Múltiples</a>
 &nbsp;
 &nbsp;
 <?
 	if (!$IsNew) {
 ?>
-<a href="UsoMultipleView.php?Id=<? echo $Id; ?>">UsoMultiple</a>
+<a href="UsoMultipleView.php?Id=<? echo $Id; ?>">Uso Múltiple</a>
 &nbsp;
 &nbsp;
 <?
@@ -65,8 +65,8 @@
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
 
-	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, False);
-	FieldTextGenerate("Codigo", "Codigo", $Codigo, 30, False);
+	FieldTextGenerate("Nombre", "Nombre", $Nombre, 30, True);
+	FieldTextGenerate("Codigo", "Codigo", $Codigo, 30, True);
 	FieldComboRsGenerate("IdConsorcio", "Consorcio", $rsIdConsorcio, $IdConsorcio,"Id","Nombre", false, False);
 	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
 

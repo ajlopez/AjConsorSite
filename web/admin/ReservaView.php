@@ -20,7 +20,6 @@
 	
 	SessionPut('ReservaLink',PageCurrent());
 
-
 	if (!isset($Id))
 		PageExit();
 
@@ -42,25 +41,23 @@
 <a href="ReservaList.php">Reservas</a>
 &nbsp;
 &nbsp;
-<a href="ReservaForm.php?Id=<? echo $Id; ?>">Update</a>
+<a href="ReservaForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ReservaDelete.php?Id=<? echo $Id; ?>">Delete</a>
+<a href="ReservaDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
 
 <?
 	TableOpen('', '80%');
 	FieldStaticGenerate("Id",$Id);
-	FieldStaticGenerate("DesdeFecha",$DesdeFecha);
-	FieldStaticGenerate("DesdeHora",$DesdeHora);
-	FieldStaticGenerate("HastaFecha",$HastaFecha);
-	FieldStaticGenerate("HastaHora",$HastaHora);
-	FieldStaticGenerate("UsoMultiple",$TranslationIdUsoMultiple);
+	FieldStaticGenerate("Desde Fecha",$DesdeFecha);
+	FieldStaticGenerate("Desde Hora",$DesdeHora);
+	FieldStaticGenerate("Hasta Fecha",$HastaFecha);
+	FieldStaticGenerate("Hasta Hora",$HastaHora);
+	FieldStaticGenerate("Uso Múltiple",$TranslationIdUsoMultiple);
 	FieldStaticGenerate("Usuario",$TranslationIdUser);
 	TableClose();
 ?>
-
-
 
 <?
 	DbDisconnect();
