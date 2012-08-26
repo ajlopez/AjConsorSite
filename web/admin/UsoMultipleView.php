@@ -21,7 +21,7 @@
 	DbConnect();
 	
 	SessionPut('UsoMultipleLink',PageCurrent());
-
+	SessionPut('ReservaLink',PageCurrent());
 
 	if (!isset($Id))
 		PageExit();
@@ -69,7 +69,7 @@
 <?
 	$rsReservas = ReservaGetByUsoMultiple($Id);
 
-	$titles = array('Id', 'DesdeFecha', 'DesdeHora', 'HastaFecha', 'HastaHora', 'Usuario');
+	$titles = array('Id', 'Desde Fecha', 'Desde Hora', 'Hasta Fecha', 'Hasta Hora', 'Usuario');
 
 	TableOpen($titles,"98%");
 

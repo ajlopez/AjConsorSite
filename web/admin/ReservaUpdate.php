@@ -9,15 +9,34 @@
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
 	include_once($Page->Prefix.'ajfwk/Validations.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
-
-	DbConnect();
-	DbTransactionBegin();
-
+	
+	$DesdeFecha = DateMakeSql($DesdeFechaYear, $DesdeFechaMonth, $DesdeFechaDay);
+	$HastaFecha = DateMakeSql($HastaFechaYear, $HastaFechaMonth, $HastaFechaDay);	
+		
+	if (empty($DesdeFecha))
+		ErrorAdd('Debe ingresar Desde Fecha');		
+	else if (!DateValidate($DesdeFechaYear, $DesdeFechaMonth, $DesdeFechaDay))
+		ErrorAdd('Desde Fecha incorrecta');
+	if (empty($DesdeHora))
+		ErrorAdd('Debe ingresar Desde Hora');
+		
+	if (empty($HastaFecha))
+		ErrorAdd('Debe ingresar Hasta Fecha');
+	else if (!DateValidate($HastaFechaYear, $HastaFechaMonth, $HastaFechaDay))
+		ErrorAdd('Hasta Fecha incorrecta');
+	if (empty($HastaHora))
+		ErrorAdd('Debe ingresar Hasta Hora');
+		
+	if ($DesdeFecha > $HastaFecha || ($DesdeFecha == $HastaFecha && $DesdeHora > $HastaHora))
+		ErrorAdd('Rango Horario incorrecta');
+		
 	if (ErrorHas()) {
-		DbDisconnect();
 		include('ReservaForm.php');
 		exit;
 	}
+
+	DbConnect();
+	DbTransactionBegin();
 
 	if (empty($Id))
 		$sql = "Insert";

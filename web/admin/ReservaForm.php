@@ -31,9 +31,14 @@
 	else if (isset($Id))
 		$IsNew = 0;
 	else {
-		$Page->Title = "Nuevo Reserva";
+		$Page->Title = "Nueva Reserva";
 		$IsNew = 1;
 	}
+	
+	if (!$DesdeFecha)
+		$DesdeFecha = date('Y-m-d');
+	if (!$HastaFecha)
+		$HastaFecha = date('Y-m-d');
 
 	$rsIdUsoMultiple = TranslateQuery("$Cfg[SqlPrefix]usomultiples","Nombre as Nombre");
 	$rsIdUser = TranslateQuery("$Cfg[SqlPrefix]users","UserName as UserName");

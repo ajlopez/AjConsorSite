@@ -114,8 +114,8 @@ function HourGenerate($name,$value, $novalor=0) {
 	if ($novalor)
 		 echo "<option value=''></option>\n";
 	while (list($k, $v) = each($Hours))  {
-				$s = $k == $value ? " selected" : "";
-			echo "<option $s value=$k>$v</option>\n";
+				$s = $v == $value ? " selected" : "";
+			echo "<option $s>$v</option>\n";
 	}
 	echo "</select>\n";
 }

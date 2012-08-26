@@ -1,5 +1,6 @@
 <?
 	$Page->Title = 'Actualiza Uso Múltiple';
+	
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
