@@ -121,6 +121,7 @@ function UserLogin($user) {
 	$multiple = DbNextRow($rs);
 	if ($multiple)
 		$user->HasMultiple = $multiple;
+	DbFreeResult($rs);
 	DbDisconnect();
 }
 

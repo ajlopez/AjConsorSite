@@ -10,6 +10,8 @@
 	include_once($Page->Prefix.'ajfwk/Validations.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
+	include_once($Page->Prefix . 'includes/ReservaFunctions.inc.php');
+	include_once($Page->Prefix . 'includes/ReservaFunctionsEx.inc.php');
 	
 	$DesdeFecha = DateMakeSql($DesdeFechaYear, $DesdeFechaMonth, $DesdeFechaDay);
 	$HastaFecha = DateMakeSql($HastaFechaYear, $HastaFechaMonth, $HastaFechaDay);	
@@ -31,15 +33,23 @@
 	if ($DesdeFecha > $HastaFecha || ($DesdeFecha == $HastaFecha && $DesdeHora > $HastaHora))
 		ErrorAdd('Rango Horario incorrecta');
 		
+	DbConnect();
+
+	$IdUser = UserId();
+	
+	$count = ReservaCountInRange($Id+0, $IdUsoMultiple, $DesdeFecha, $DesdeHora, $HastaFecha, $HastaHora);
+	
+	if ($count > 0)
+		ErrorAdd('Horario ocupado');
+
 	if (ErrorHas()) {
+		DbDisconnect();
 		include('ReservaForm.php');
 		exit;
 	}
-
-	DbConnect();
+	
 	DbTransactionBegin();
 	
-	$IdUser = UserId();
 
 	if (empty($Id))
 		$sql = "Insert";
