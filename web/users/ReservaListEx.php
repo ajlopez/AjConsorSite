@@ -109,7 +109,7 @@
 <th>
 <?= $fecha ?>
 <br/>
-<?= DateToWeekDayName($fecha) ?>
+<?= DateToWeekDaySpanishName($fecha) ?>
 </th>
 <?		
 	}

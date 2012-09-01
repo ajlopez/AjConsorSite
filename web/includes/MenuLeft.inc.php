@@ -61,7 +61,8 @@ function MenuLeftClose()
 		MenuLeftOpen(UserName());
 		MenuLeftOption('Mis Datos', 'users/User.php');
 		MenuLeftOption('Mis Documentos', 'users/DocumentoList.php');
-		MenuLeftOption('Mis Reservas', 'users/ReservaListEx.php');
+		if (UserHasMultiple())
+			MenuLeftOption('Mis Reservas', 'users/ReservaListEx.php');
 		MenuLeftOption('Salir','users/Logout.php');
 		MenuLeftClose();
 	}

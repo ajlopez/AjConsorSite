@@ -1,4 +1,15 @@
 <?
+
+$DaySpanishNames = array(
+	'Sunday' => 'Domingo',
+	'Saturday' => 'Sábado',
+	'Monday' => 'Lunes',
+	'Tuesday' => 'Martes',
+	'Wednesday' => 'Miércoles',
+	'Thursday' => 'Jueves',
+	'Friday' => 'Viernes'
+);
+
 function DateToString($date)
 {
     return date('Y-m-d', strtotime($date));
@@ -22,6 +33,12 @@ function DateToISOWeekNumber($date)
 function DateToWeekDayName($date)
 {
     return date('l', strtotime($date));
+}
+
+function DateToWeekDaySpanishName($date)
+{
+	global $DaySpanishNames;
+    return $DaySpanishNames[DateToWeekDayName($date)];
 }
 
 function DateToMonday($date)
