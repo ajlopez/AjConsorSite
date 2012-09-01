@@ -28,7 +28,7 @@ function ReservaGetList($where='',$order='') {
 	if (!$order)
 		$order = 'Id';
 	$sql .= " order by $order";
-
+	
 	return DbExecuteQuery($sql);
 }
 

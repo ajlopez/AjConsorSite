@@ -38,4 +38,9 @@ function DateAddDays($date, $days)
 {
     return date('Y-m-d', strtotime($days . ' days', strtotime($date)));
 }
+
+function DateAddMonths($date, $months)
+{
+    return date('Y-m-d', strtotime($months . ' months', strtotime($date)));
+}
 ?>
