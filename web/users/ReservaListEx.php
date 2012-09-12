@@ -30,7 +30,7 @@
 		$FechaDesde = DateToMonday($FechaDesde);
 	if (!$FechaHasta)
 		$FechaHasta = DateAddDays($FechaDesde, 6);
-		
+        		
 	$SemanaAnterior = DateAddDays($FechaDesde, -7);
 	$SemanaSiguiente = DateAddDays($FechaDesde, 7);
 	$MesAnterior = DateAddMonths($FechaDesde, -1);
@@ -38,8 +38,6 @@
 
 	DbConnect();
     
-    $rs = UsoMultipleGetListByUser(UserId());
-
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
 
@@ -84,20 +82,44 @@
 }
 </style>
 
-<div class="actions">
-<a href="ReservaListEx.php?FechaDesde=<?= $MesAnterior ?>">Mes Anterior</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php?FechaDesde=<?= $SemanaAnterior ?>">Semana Anterior</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php?FechaDesde=<?= $SemanaSiguiente ?>">Semana Siguiente</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php?FechaDesde=<?= $MesSiguiente ?>">Mes Siguiente</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php">Hoy</a>
-</div>
-
-<?		
+<div>
+<?
+    $nsum=0;
+    $rs = UsoMultipleGetListByUser(UserId());
 	while ($reg=DbNextRow($rs)) {
+        $nsum++;
+?>
+<a href="#num<?= $nsum ?>"><?= $reg['Nombre'] ?></a>
+<br/>
+<?		
+    }
+?>
+</div>
+<?
+    $nsum = 0;
+    $rs = UsoMultipleGetListByUser(UserId());
+    
+	while ($reg=DbNextRow($rs)) {
+        $nsum++;
 		$iduso = $reg['Id'];
 		$rsReservas = ReservaGetList("IdUsoMultiple = $iduso and (DesdeFecha >= '$FechaDesde' or HastaFecha >= '$FechaDesde') and (DesdeFecha <= '$FechaHasta' or HastaFecha <= '$FechaHasta')", "DesdeHora, DesdeFecha");
 		$reserva = DbNextRow($rsReservas);
 ?>
+
+
+<br />
+
+<a name='num<?= $nsum ?>'>
+
+<div class="actions">
+<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $MesAnterior ?>">Mes Anterior</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $SemanaAnterior ?>">Semana Anterior</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $SemanaSiguiente ?>">Semana Siguiente</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $MesSiguiente ?>">Mes Siguiente</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php#num<?= $nsum ?>">Hoy</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php?FechaDesde=<?= $FechaDesde ?>">Tope</a>
+</div>
+
 <h3><?= $reg['Nombre'] ?></h3>
 <table class="table-striped table-bordered hours">
 <tr>
