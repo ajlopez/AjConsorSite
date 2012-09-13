@@ -82,6 +82,10 @@
 	$Link = SessionGet("ReservaLink");
 	SessionRemove("ReservaLink");
 
-	PageAbsoluteRedirect('ReservaListEx.php?FechaDesde=' . $DesdeFecha);
+	if ($Link)
+		PageAbsoluteRedirect($Link);
+	else
+		PageAbsoluteRedirect('ReservaListEx.php?FechaDesde=' . $DesdeFecha);
+		
 	exit;
 ?>

@@ -54,6 +54,11 @@ function UserHasMultiple() {
 	return($User->HasMultiple);
 }
 
+function UserHasManyMultiple() {
+	$User = UserCurrent();
+	return($User->HasManyMultiple);
+}
+
 function UserName() {
 	$User = UserCurrent();
 	return($User->UserName);
@@ -119,8 +124,12 @@ function UserLogin($user) {
 	DbExecuteUpdate("update users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
 	$rs = UsoMultipleGetListByUser($user->Id);
 	$multiple = DbNextRow($rs);
-	if ($multiple)
+	if ($multiple) {
 		$user->HasMultiple = $multiple;
+		$second = DbNextRow($rs);
+		if ($second)
+			$user->HasManyMultiple = true;
+	}
 	DbFreeResult($rs);
 	DbDisconnect();
 }

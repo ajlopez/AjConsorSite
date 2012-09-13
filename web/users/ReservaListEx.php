@@ -82,25 +82,31 @@
 }
 </style>
 
+<?
+	if (UserHasManyMultiple()) {
+?>
+<h3>Reservas de:</h3>
 <div>
 <?
-    $nsum=0;
-    $rs = UsoMultipleGetListByUser(UserId());
-	while ($reg=DbNextRow($rs)) {
-        $nsum++;
+		$nsum=0;
+		$rs = UsoMultipleGetListByUser(UserId());
+		while ($reg=DbNextRow($rs)) {
+			$nsum++;
 ?>
 <a href="#num<?= $nsum ?>"><?= $reg['Nombre'] ?></a>
 <br/>
 <?		
-    }
+		}
 ?>
 </div>
-<?
+<?		
+	}
+
     $nsum = 0;
     $rs = UsoMultipleGetListByUser(UserId());
     
 	while ($reg=DbNextRow($rs)) {
-        $nsum++;
+		$nsum++;
 		$iduso = $reg['Id'];
 		$rsReservas = ReservaGetList("IdUsoMultiple = $iduso and (DesdeFecha >= '$FechaDesde' or HastaFecha >= '$FechaDesde') and (DesdeFecha <= '$FechaHasta' or HastaFecha <= '$FechaHasta')", "DesdeHora, DesdeFecha");
 		$reserva = DbNextRow($rsReservas);
@@ -112,12 +118,12 @@
 <a name='num<?= $nsum ?>'>
 
 <div class="actions">
-<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $MesAnterior ?>">Mes Anterior</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $SemanaAnterior ?>">Semana Anterior</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $SemanaSiguiente ?>">Semana Siguiente</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php#num<?= $nsum ?>?FechaDesde=<?= $MesSiguiente ?>">Mes Siguiente</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php?FechaDesde=<?= $MesAnterior ?>#num<?= $nsum ?>">Mes Anterior</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php?FechaDesde=<?= $SemanaAnterior ?>#num<?= $nsum ?>">Semana Anterior</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php?FechaDesde=<?= $SemanaSiguiente ?>#num<?= $nsum ?>">Semana Siguiente</a>&nbsp;&nbsp;
+<a href="ReservaListEx.php?FechaDesde=<?= $MesSiguiente ?>#num<?= $nsum ?>">Mes Siguiente</a>&nbsp;&nbsp;
 <a href="ReservaListEx.php#num<?= $nsum ?>">Hoy</a>&nbsp;&nbsp;
-<a href="ReservaListEx.php?FechaDesde=<?= $FechaDesde ?>">Tope</a>
+<a href="ReservaListEx.php?FechaDesde=<?= $FechaDesde ?>">Tope de Página</a>
 </div>
 
 <h3><?= $reg['Nombre'] ?></h3>
