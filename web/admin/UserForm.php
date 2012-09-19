@@ -25,6 +25,7 @@
 		$Email = $rs['Email'];
 		$Genre = $rs['Genre'];
 		$IsAdministrator = $rs['IsAdministrator'];
+		$NoReserva = $rs['NoReserva']; 
 		$Verified = $rs['Verified'];
 		$Notas = $rs['Notas'];
 
@@ -36,7 +37,6 @@
 		$Page->Title = "Nuevo Usuario";
 		$IsNew = 1;
 	}
-
 
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
@@ -81,6 +81,7 @@
 	FieldTextGenerate("Genre", "Género", $Genre, 30, False);
 	FieldCheckGenerate("IsAdministrator", "Es Administrador", $IsAdministrator, False);
 	FieldCheckGenerate("Verified", "Verificado", $Verified, False);
+	FieldCheckGenerate("NoReserva", "No Puede Reservar SUM", $NoReserva, False);
 	FieldMemoGenerate("Notas", "Notas", $Notas, 10, 30, False);
 
 	FieldOkGenerate();

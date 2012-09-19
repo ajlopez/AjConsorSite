@@ -73,6 +73,7 @@ create table users (
 		LoginCount int(11),
 		Verified tinyint(4),
 		Notas text,
+		NoReserva tinyint(4),
 		primary key (Id)
 ) TYPE=InnoDB;
 
@@ -114,6 +115,7 @@ create table userunidades (
 		IdUnidad int,
 		primary key (Id)
 ) TYPE=InnoDB;
+
 
 --
 --		Entity:		UsoMultiple

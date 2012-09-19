@@ -47,6 +47,7 @@
 		Email = '$Email' , 
 		Genre = '$Genre' , 
 		IsAdministrator = '$IsAdministrator' , 
+		NoReserva = '$NoReserva' ,
 		Verified = '$Verified' , 
 		Notas = '$Notas' 		";
 		

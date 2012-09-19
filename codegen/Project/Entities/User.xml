@@ -64,7 +64,7 @@
 			<Type>Boolean</Type>
 			<SqlType>tinyint(4)</SqlType>
 		</Property>
-
+		
 		<Property>
 			<Name>DateTimeInsert</Name>
 			<Description>Fecha/Hora Creación</Description>
@@ -110,6 +110,13 @@
 			<Name>Notas</Name>
 			<Type>Memo</Type>
 			<SqlType>text</SqlType>
+		</Property>
+
+		<Property>
+			<Name>NoReserva</Name>
+			<Description>No Puede Reservar SUM</Description>
+			<Type>Boolean</Type>
+			<SqlType>tinyint(4)</SqlType>
 		</Property>
 	</Properties>
 </Entity>

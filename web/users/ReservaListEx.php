@@ -101,15 +101,52 @@
 </div>
 <?		
 	}
+	
+	function comparareservas($res1, $res2)
+	{
+		if ($res1['DesdeHora'] < $res2['DesdeHora'])
+			return -1;
+		if ($res1['DesdeHora'] > $res2['DesdeHora'])
+			return 1;
+		if ($res1['DesdeFecha'] < $res2['DesdeFecha'])
+			return -1;
+		if ($res1['DesdeFecha'] > $res2['DesdeFecha'])
+			return 1;
+		return 0;
+	}
 
     $nsum = 0;
     $rs = UsoMultipleGetListByUser(UserId());
-    
+	
 	while ($reg=DbNextRow($rs)) {
 		$nsum++;
 		$iduso = $reg['Id'];
 		$rsReservas = ReservaGetList("IdUsoMultiple = $iduso and (DesdeFecha >= '$FechaDesde' or HastaFecha >= '$FechaDesde') and (DesdeFecha <= '$FechaHasta' or HastaFecha <= '$FechaHasta')", "DesdeHora, DesdeFecha");
+		unset($reservas);		
 		$reserva = DbNextRow($rsReservas);
+		
+		while ($reserva) {
+			if ($reserva['DesdeFecha'] != $reserva['HastaFecha'])
+			{
+				$reserva1 = $reserva;
+				$reserva1['HastaHora'] = '24:00';
+				$reserva1['HastaFecha'] = $reserva1['DesdeFecha'];
+				$reservas[] = $reserva1;
+				$reserva2 = $reserva;
+				$reserva2['DesdeHora'] = '00:00';
+				$reserva2['DesdeFecha'] = $reserva2['HastaFecha'];
+				$reservas[] = $reserva2;
+			}
+			else 
+				$reservas[] = $reserva;
+				
+			$reserva = DbNextRow($rsReservas);
+		}
+		
+		usort($reservas, "comparareservas");
+		
+		unset($reserva);
+		DbFreeResult($rsReservas);
 ?>
 
 
@@ -131,6 +168,11 @@
 <tr>
 <th></th>
 <?
+	$nreserva = 0;
+	
+	if ($nreserva < count($reservas))
+		$reserva = $reservas[$nreserva++];
+
 	for ($k = 0; $k < 7; $k++) {
 		$fecha = DateAddDays($FechaDesde, $k);
 ?>
@@ -149,7 +191,7 @@
 		if ($hour == "24:00")
 			continue;
 		if (substr($hour, -2) == "00")
-			echo "<td rowspan=2 style='vertical-align:top'>$hour</td>";
+			echo "<td rowspan=2 style='padding: 0px; height: 24px'>$hour</td>";
 			
 		for ($k = 0; $k < 7; $k++) {
 			$fecha = DateAddDays($FechaDesde, $k);
@@ -157,6 +199,7 @@
 			{
 				$desdehora = $reserva['DesdeHora'];
 				$hastahora = $reserva['HastaHora'];
+				
 				$nhours = (substr($hastahora, 0, 2) - substr($desdehora, 0, 2)) * 2;
 				if (substr($hastahora, -2) != substr($desdehora, -2))
 					if (substr($hastahora, -2) == "00")
@@ -165,7 +208,9 @@
 						$nhours++;
 				if ($nh + $nhours > count($Hours))
 					$nhours -= count($Hours) - $nh;
-				$divheight = $nhours * 21;
+				$divheight = $nhours * 20;
+				if ($nhours > 1)
+					$divheight += ($nhours - 1) * 2;
 				if ($reserva['IdUser'] == UserId())
 					$klass = 'reservapropia';
 				else
@@ -176,7 +221,12 @@
 					echo "<td rowspan=$nhours><div class='$klass' style='height:${divheight}px'>$fullname</div></td>";
 				else
 					echo "<td rowspan=$nhours onclick='viewreserva($idreserva)'><div class='$klass' style='height:${divheight}px'>$fullname</div></td>";
-				$reserva = DbNextRow($rsReservas);
+
+				if ($nreserva < count($reservas))
+					$reserva = $reservas[$nreserva++];
+				else
+					unset($reserva);					
+					
 				$skips[$k] = $nhours-1;
 			}
 			else if ($skips[$k])
@@ -191,7 +241,6 @@
 ?>
 </table>
 <?        
-		DbFreeResult($rsReservas);
 	}
 ?>
 

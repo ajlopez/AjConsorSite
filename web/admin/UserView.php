@@ -35,6 +35,7 @@
 	$Email = $rs['Email'];
 	$Genre = $rs['Genre'];
 	$IsAdministrator = $rs['IsAdministrator'];
+	$NoReserva = $rs['NoReserva'];
 	$DateTimeInsert = $rs['DateTimeInsert'];
 	$DateTimeUpdate = $rs['DateTimeUpdate'];
 	$DateTimeLastLogin = $rs['DateTimeLastLogin'];
@@ -64,13 +65,14 @@
 	FieldStaticGenerate("Apellido",$LastName);
 	FieldStaticGenerate("Correo Electrónico",$Email);
 	FieldStaticGenerate("Género",$Genre);
-	FieldStaticGenerate("Es Administrador",$IsAdministrator);
+	FieldStaticGenerate("Es Administrador",($IsAdministrator ? 'Sí' : 'No'));
 	FieldStaticGenerate("Fecha/Hora Creación",$DateTimeInsert);
 	FieldStaticGenerate("Fecha/Hora Ultima Actualización",$DateTimeUpdate);
 	FieldStaticGenerate("Fecha/Hora Ultimo Ingreso",$DateTimeLastLogin);
 	FieldStaticGenerate("Cantidad de Ingresos",$LoginCount);
-	FieldStaticGenerate("Verificado",$Verified);
+	FieldStaticGenerate("Verificado",($Verified ? 'Sí' : 'No'));
 	FieldStaticGenerate("Notas",$Notas);
+	FieldStaticGenerate("Reserva SUM",($NoReserva ? 'No Puede' : 'Puede'));
 	TableClose();
 ?>
 

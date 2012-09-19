@@ -12,7 +12,7 @@
 function UserGetById($Id) {
 	global $Cfg;
 
-	$sql = "select Id, UserName, Password, FirstName, LastName, Email, Genre, IsAdministrator, DateTimeInsert, DateTimeUpdate, DateTimeLastLogin, LoginCount, Verified, Notas from $Cfg[SqlPrefix]users where Id = $Id";
+	$sql = "select Id, UserName, Password, FirstName, LastName, Email, Genre, IsAdministrator, DateTimeInsert, DateTimeUpdate, DateTimeLastLogin, LoginCount, Verified, Notas, NoReserva from $Cfg[SqlPrefix]users where Id = $Id";
 
 	$rs = DbExecuteQuery($sql);
 	return DbNextRow($rs);
@@ -21,7 +21,7 @@ function UserGetById($Id) {
 function UserGetList($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, UserName, Password, FirstName, LastName, Email, Genre, IsAdministrator, DateTimeInsert, DateTimeUpdate, DateTimeLastLogin, LoginCount, Verified, Notas from $Cfg[SqlPrefix]users";
+	$sql = "select Id, UserName, Password, FirstName, LastName, Email, Genre, IsAdministrator, DateTimeInsert, DateTimeUpdate, DateTimeLastLogin, LoginCount, Verified, Notas, NoReserva from $Cfg[SqlPrefix]users";
 
 	if ($where)
 		$sql .= " where $where";
@@ -35,7 +35,7 @@ function UserGetList($where='',$order='') {
 function UserGetListView($where='',$order='') {
 	global $Cfg;
 
-	$sql = "select Id, Id, UserName, FirstName, LastName, Email, Genre, IsAdministrator, DateTimeInsert, DateTimeUpdate, DateTimeLastLogin, LoginCount, Verified, Notas from $Cfg[SqlPrefix]users";
+	$sql = "select Id, Id, UserName, FirstName, LastName, Email, Genre, IsAdministrator, DateTimeInsert, DateTimeUpdate, DateTimeLastLogin, LoginCount, Verified, Notas, NoReserva from $Cfg[SqlPrefix]users";
 
 	if ($where)
 		$sql .= " where $where";
@@ -54,7 +54,7 @@ function UserGetView($where='',$order='') {
 //	function GetListBy...
 //	function GetViewBy...
 
-function UserInsert($UserName, $Password, $FirstName, $LastName, $Email, $Genre, $IsAdministrator, $DateTimeInsert, $DateTimeUpdate, $DateTimeLastLogin, $LoginCount, $Verified, $Notas) {
+function UserInsert($UserName, $Password, $FirstName, $LastName, $Email, $Genre, $IsAdministrator, $DateTimeInsert, $DateTimeUpdate, $DateTimeLastLogin, $LoginCount, $Verified, $Notas, $NoReserva) {
 	global $Cfg;
 
 	$sql = "insert $Cfg[SqlPrefix]users set
@@ -70,14 +70,15 @@ function UserInsert($UserName, $Password, $FirstName, $LastName, $Email, $Genre,
 		DateTimeLastLogin = '$DateTimeLastLogin',
 		LoginCount = $LoginCount,
 		Verified = '$Verified',
-		Notas = '$Notas'";
+		Notas = '$Notas',
+		NoReserva = '$NoReserva'";
 
 	DbExecuteUpdate($sql);
 
 	return DbLastId();
 }
 
-function UserUpdate($Id, $UserName, $Password, $FirstName, $LastName, $Email, $Genre, $IsAdministrator, $DateTimeInsert, $DateTimeUpdate, $DateTimeLastLogin, $LoginCount, $Verified, $Notas) {
+function UserUpdate($Id, $UserName, $Password, $FirstName, $LastName, $Email, $Genre, $IsAdministrator, $DateTimeInsert, $DateTimeUpdate, $DateTimeLastLogin, $LoginCount, $Verified, $Notas, $NoReserva) {
 	global $Cfg;
 
 	$sql = "update $Cfg[SqlPrefix]users set
@@ -93,7 +94,8 @@ function UserUpdate($Id, $UserName, $Password, $FirstName, $LastName, $Email, $G
 		DateTimeLastLogin = '$DateTimeLastLogin',
 		LoginCount = $LoginCount,
 		Verified = '$Verified',
-		Notas = '$Notas' where Id = $Id";
+		Notas = '$Notas',
+		NoReserva = '$NoReserva' where Id = $Id";
 
 	DbExecuteUpdate($sql);
 }

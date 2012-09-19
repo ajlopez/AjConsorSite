@@ -51,7 +51,7 @@ function UserId() {
 
 function UserHasMultiple() {
 	$User = UserCurrent();
-	return($User->HasMultiple);
+	return($User->HasMultiple && !$User->NoReserva);
 }
 
 function UserHasManyMultiple() {
