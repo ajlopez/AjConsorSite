@@ -26,7 +26,9 @@
 ?>
 
 <div class="actions">
-<a href="DocumentoConsorcioForm.php">Nuevo Documento de Consorcio</a>
+<a href="DocumentoConsorcioForm.php">Subir Documento de Consorcio</a>
+&nbsp;&nbsp;
+<a href="DocumentoConsorcioFormEx.php">Subir Varios Documentos de Consorcio</a>
 </div>
 
 <?		
