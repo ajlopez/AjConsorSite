@@ -19,7 +19,7 @@ function UserControl($link='') {
 				$enlace .= "?" . $HTTP_SERVER_VARS["QUERY_STRING"];
 		}
 		SessionPut("UserLink", $link);
-		PageRedirect('users/login.php');
+		PageRedirect(PageLogin());
 		exit;
 	}
 }

@@ -143,7 +143,8 @@
 			$reserva = DbNextRow($rsReservas);
 		}
 		
-		usort($reservas, "comparareservas");
+		if ($reservas)
+			usort($reservas, "comparareservas");
 		
 		unset($reserva);
 		DbFreeResult($rsReservas);
