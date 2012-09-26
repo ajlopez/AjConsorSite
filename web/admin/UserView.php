@@ -54,6 +54,9 @@
 <a href="UserForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
+<a href="UserPasswordForm.php?Id=<? echo $Id; ?>">Cambia Contraseña</a>
+&nbsp;
+&nbsp;
 <a href="UserDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
 
