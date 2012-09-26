@@ -8,16 +8,18 @@
 <div class="container">
 <!-- Masthead
 ================================================== -->
-<header class="jumbotron masthead">
+<!--
+  <header class="jumbotron masthead">
   <div class="inner">
     <h1>Bienvenidos a <?= $Cfg['SiteName'] ?></h1>
-    <p><? echo $Cfg['SiteDescription'] ?></p>
+	  <p><? echo $Cfg['SiteDescription'] ?></p>
   </div>
 
 </header>
 
 <hr class="soften">
-
+-->
+  
 <div class="marketing">
   <h1>Nuestros servicios</h1>
   <div class="row">
