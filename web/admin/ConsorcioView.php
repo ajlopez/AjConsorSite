@@ -75,7 +75,7 @@
 <?
 	$rsUnidades = UnidadGetByConsorcio($Id);
 
-	$titles = array('Código', 'Nombre', 'Piso', 'Nro/Letra', 'Notas');
+	$titles = array('Código', 'Nombre', 'Piso', 'Nro/Letra', 'Notas', 'Usuarios');
 
 	TableOpen($titles);
 
@@ -86,6 +86,17 @@
 		DatumGenerate($reg['Piso']);
 		DatumGenerate($reg['Numero']);
 		DatumGenerate($reg['Notas']);
+		$rsUnidadUsuarios = UsuarioUnidadGetByUnidad($reg['Id']);
+		$datum = '';
+		while ($regusu=DbNextRow($rsUnidadUsuarios)) {
+			$userid = $regusu['IdUser'];
+			$username = UserTranslate($userid);
+			if ($datum)
+				$datum .= "<br/>";
+			$datum .= "<a href='UserView.php?Id=$userid'>$username</a>";
+		}
+		DbFreeResult($rsUnidadUsuarios);
+		DatumGenerate($datum);
 		RowClose();
 	}
 

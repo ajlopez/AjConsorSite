@@ -82,7 +82,7 @@ function DatumCurrencyGenerate($datum) {
 function DatumLinkGenerate($datum,$link,$align='left',$target='') {
 	if (!$datum)
 		$datum='&nbsp;';
-	echo "<td align='$align'><a href='$link'";
+	echo "<td align='$align' valign='top'><a href='$link'";
 	if ($target)
 		echo " target='$target'";
 	echo ">$datum</a>&nbsp;</td>\n";
