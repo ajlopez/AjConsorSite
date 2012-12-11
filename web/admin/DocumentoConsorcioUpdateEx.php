@@ -23,7 +23,7 @@
 	$Uuid1 = uniqid();
 	$Uuid2 = uniqid();
 	$Uuid3 = uniqid();
-	$Uuid3 = uniqid();
+	$Uuid4 = uniqid();
     
     if ($_FILES['Archivo1']['name'])
     {

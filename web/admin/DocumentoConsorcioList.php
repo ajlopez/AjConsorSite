@@ -12,15 +12,16 @@
 
 	include_once($Page->Prefix . 'includes/Enumerations.inc.php');
 	include_once($Page->Prefix . 'includes/DocumentoConsorcioFunctions.inc.php');
+	include_once($Page->Prefix . 'includes/DocumentoConsorcioFunctionsEx.inc.php');
 	include_once($Page->Prefix . 'includes/ConsorcioFunctions.inc.php');
 
 	SessionPut('DocumentoConsorcioLink',PageCurrent());
 
 	DbConnect();
 
-	$rs = DocumentoConsorcioGetListView();
+	$rs = DocumentoConsorcioGetExtendedListView('','consorcios.Nombre, documentos.Nombre');
 
-	$titles = array('Id', 'Nombre', 'Descripción', 'Nombre de Archivo', 'Código Interno', 'Consorcio', 'Notas');
+	$titles = array('Id', 'Consorcio', 'Nombre de Documento', 'Descripción', 'Nombre de Archivo', 'Código Interno', 'Notas');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -37,12 +38,11 @@
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
 		DatumLinkGenerate($reg['Id'],"DocumentoConsorcioView.php?Id=".$reg['Id']);
+		DatumLinkGenerate($reg['NombreConsorcio'], "ConsorcioView.php?Id=".$reg['IdConsorcio']);
 		DatumGenerate($reg['Nombre']);
 		DatumGenerate($reg['Descripcion']);
 		DatumGenerate($reg['NombreArchivo']);
 		DatumGenerate($reg['Uuid']);
-		$ColumnDescription = ConsorcioTranslate($reg['IdConsorcio']);
-		DatumLinkGenerate($ColumnDescription, "ConsorcioView.php?Id=".$reg['IdConsorcio']);
 		DatumGenerate($reg['Notas']);
 		RowClose();
 	}

@@ -25,10 +25,14 @@
 		$Uuid = uniqid();
     }
     
-    if ($_FILES['Archivo'])
+    if ($_FILES['Archivo'] && $_FILES['Archivo']['name'])
     {
         $NombreArchivo = $_FILES['Archivo']['name'];
         $ext = pathinfo($NombreArchivo, PATHINFO_EXTENSION);
+        if (empty($Uuid))
+        {
+            $Uuid = uniqid();
+        }
         $filename = $Uuid . '.' . $ext;
         copy($_FILES['Archivo']['tmp_name'], '../files/' . $filename);
     }
@@ -45,7 +49,7 @@
 		IdConsorcio = $IdConsorcio , 
 		Notas = '$Notas' 		";
 		
-	if (empty($Id))
+	if (empty($Id) || !empty($Uuid))
 	{
 		$sql .= ", Uuid = '$Uuid'";
 	}
