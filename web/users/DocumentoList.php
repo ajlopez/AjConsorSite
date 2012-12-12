@@ -13,18 +13,19 @@
 	include_once($Page->Prefix . 'includes/Users.inc.php');
 	include_once($Page->Prefix . 'includes/Enumerations.inc.php');
 	include_once($Page->Prefix . 'includes/DocumentoConsorcioFunctions.inc.php');
+	include_once($Page->Prefix . 'includes/DocumentoConsorcioFunctionsEx.inc.php');
 	include_once($Page->Prefix . 'includes/ConsorcioFunctions.inc.php');
 
 	DbConnect();
     
     $IdUser = UserId();
     
-    $where = "IdConsorcio in (Select Distinct IdConsorcio from userunidades whereConsorcios where IdUser = $IdUser)";
-    $order = "Id desc";
+    $where = "documentos.IdConsorcio in (Select Distinct IdConsorcio from $Cfg[SqlPrefix]userunidades where IdUser = $IdUser)";
+    $order = "consorcios.Nombre, documentos.Nombre desc";
 
-	$rs = DocumentoConsorcioGetListView($where, $order);
+	$rs = DocumentoConsorcioGetExtendedListView($where, $order);
 
-	$titles = array('Nombre', 'Descripción', 'Archivo', 'Consorcio', '');
+	$titles = array('Consorcio', 'Nombre de Documento', 'Descripción', 'Archivo', '');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -34,11 +35,10 @@
 
 	while ($reg=DbNextRow($rs)) {
 		RowOpen();
+		DatumGenerate($reg['NombreConsorcio']);
 		DatumGenerate($reg['Nombre']);
 		DatumGenerate($reg['Descripcion']);
 		DatumGenerate($reg['NombreArchivo']);
-		$ColumnDescription = ConsorcioTranslate($reg['IdConsorcio']);
-		DatumGenerate($ColumnDescription);
 		DatumLinkGenerate('Bajar Documento', "DocumentoDownload.php?Uuid=".$reg['Uuid']);
 		RowClose();
 	}

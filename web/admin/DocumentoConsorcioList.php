@@ -19,7 +19,7 @@
 
 	DbConnect();
 
-	$rs = DocumentoConsorcioGetExtendedListView('','consorcios.Nombre, documentos.Nombre');
+	$rs = DocumentoConsorcioGetExtendedListView('','consorcios.Nombre, documentos.Nombre desc');
 
 	$titles = array('Id', 'Consorcio', 'Nombre de Documento', 'Descripción', 'Nombre de Archivo', 'Código Interno', 'Notas');
 
