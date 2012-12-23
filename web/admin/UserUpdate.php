@@ -67,9 +67,26 @@
 		$sql .= " where Id=$Id";
 
 	DbExecuteUpdate($sql);
+    
+    if (empty($Id)) {
+        $NewIdUser = DbLastId();
+        if ($IdUnidad && $IdConsorcio) {
+            $sql = "insert $Cfg[SqlPrefix]userunidades set
+                IdUser = $NewIdUser , 
+                IdConsorcio = $IdConsorcio , 
+                IdUnidad = $IdUnidad 		";
+            DbExecuteUpdate($sql);
+        }
+    }
 
 	DbTransactionCommit();
 	DbDisconnect();
+    
+    if ($Back == 'consorcio' && $IdConsorcio)
+        PageRedirect("admin/ConsorcioView.php?Id=$IdConsorcio");
+
+    if ($Back == 'unidad' && $IdUnidad)
+        PageRedirect("admin/UnidadView.php?Id=$IdUnidad");
 
 	$Link = SessionGet("UserLink");
 	SessionRemove("UserLink");

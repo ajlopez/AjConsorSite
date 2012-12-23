@@ -84,7 +84,7 @@
 
 <h2>Unidades del Usuario</h2>
 <div class="actions">
-<a href='UsuarioUnidadForm.php?IdUser=<?=$Id?>'>Nueva Unidad de Usuario</a>
+<a href='UsuarioUnidadForm.php?IdUser=<?=$Id?>'>Asigna Unidad a Usuario</a>
 </div>
 
 <br />

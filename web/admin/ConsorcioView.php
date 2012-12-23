@@ -81,6 +81,7 @@
 
 	while ($reg=DbNextRow($rsUnidades)) {
 		RowOpen();
+        $IdUnidad = $reg['Id'];
 		DatumLinkGenerate($reg['Codigo'],"UnidadView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
 		DatumGenerate($reg['Piso']);
@@ -96,6 +97,9 @@
 			$datum .= "<a href='UserView.php?Id=$userid'>$username</a>";
 		}
 		DbFreeResult($rsUnidadUsuarios);
+        if (!$datum) {
+            $datum .= "<a href='UserForm.php?IdConsorcio=$Id&IdUnidad=$IdUnidad&Back=consorcio'>Nuevo usuario...</a>";
+        }
 		DatumGenerate($datum);
 		RowClose();
 	}
@@ -115,7 +119,7 @@
 
 <div>
 <?
-	$rsDocumentosConsorcio = DocumentoConsorcioGetByConsorcio($Id);
+	$rsDocumentosConsorcio = DocumentoConsorcioGetList("IdConsorcio = $Id", "Nombre desc");
 
 	$titles = array('Id', 'Nombre', 'Descripción', 'Nombre de Archivo', 'Código Interno', 'Notas');
 
@@ -139,7 +143,7 @@
 </div>
 <h2>Usuarios de Unidades</h2>
 <div class="actions">
-<a href='UsuarioUnidadForm.php?IdConsorcio=<?=$Id?>'>Nuevo Usuario de Unidad</a>
+<a href='UsuarioUnidadForm.php?IdConsorcio=<?=$Id?>'>Asigna Usuario Existente a Unidad</a>
 </div>
 
 <br />

@@ -62,7 +62,10 @@
 
 <h2>Usuarios de la Unidad</h2>
 <div class="actions">
-<a href='UsuarioUnidadFormEx.php?IdUnidad=<?=$Id?>'>Nuevo Usuario de Unidad</a>
+<a href='UsuarioUnidadFormEx.php?IdUnidad=<?=$Id?>'>Asigna Usuario Existente a Unidad</a>
+&nbsp;
+&nbsp;
+<a href='UserForm.php?IdUnidad=<?=$Id?>&IdConsorcio=<?=$IdConsorcio?>&Back=unidad'>Nuevo Usuario para Unidad</a>
 </div>
 
 <br />

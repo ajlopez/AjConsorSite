@@ -89,6 +89,12 @@
 
 	if (!$IsNew)
 		FieldIdGenerate($Id);
+    if ($IdUnidad)
+        FieldHiddenGenerate('IdUnidad', $IdUnidad);
+    if ($IdConsorcio)
+        FieldHiddenGenerate('IdConsorcio', $IdConsorcio);
+    if ($Back)
+        FieldHiddenGenerate('Back', $Back);
 ?>
 
 </form>
