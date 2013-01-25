@@ -19,7 +19,7 @@
 
 	$rs = UserGetListView();
 
-	$titles = array('Id', 'Código', 'Nombre', 'Apellido', 'Correo Electrónico', 'Verificado');
+	$titles = array('Id', 'Código', 'Nombre', 'Apellido', 'Correo Electrónico', 'Ultimo Ingreso', 'Verificado');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -38,6 +38,7 @@
 		DatumGenerate($reg['FirstName']);
 		DatumGenerate($reg['LastName']);
 		DatumGenerate($reg['Email']);
+		DatumGenerate($reg['DateTimeLastLogin']);
 		DatumGenerate($reg['Verified']);
 		RowClose();
 	}

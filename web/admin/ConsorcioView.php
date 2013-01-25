@@ -19,6 +19,7 @@
 	include_once($Page->Prefix.'includes/UnidadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/DocumentoConsorcioFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UsuarioUnidadFunctions.inc.php');
+	include_once($Page->Prefix.'includes/UsuarioUnidadFunctionsEx.inc.php');
 	include_once($Page->Prefix.'includes/UserFunctions.inc.php');
 	include_once($Page->Prefix.'includes/UsoMultipleFunctions.inc.php');
 
@@ -129,7 +130,11 @@
 		RowOpen();
 		DatumLinkGenerate($reg['Id'],"DocumentoConsorcioView.php?Id=".$reg['Id']);
 		DatumGenerate($reg['Nombre']);
-		DatumGenerate($reg['Descripcion']);
+		$descripcion = $reg['Descripcion'];
+		if (strlen($descripcion) > 30)
+			$descripcion = substr($descripcion, 0, 27) . "...";
+	
+		DatumGenerate($descripcion);
 		DatumGenerate($reg['NombreArchivo']);
 		DatumGenerate($reg['Uuid']);
 		DatumGenerate($reg['Notas']);
@@ -150,9 +155,9 @@
 
 <div>
 <?
-	$rsUsuarioUnidades = UsuarioUnidadGetByConsorcio($Id);
+	$rsUsuarioUnidades = UsuarioUnidadGetByConsorcioEx($Id);
 
-	$titles = array('Id', 'Unidad', 'Nombre', 'Usuario');
+	$titles = array('Id', 'Unidad', 'Nombre', 'Usuario', 'Ultimo Ingreso');
 
 	TableOpen($titles);
 
@@ -161,10 +166,13 @@
 		DatumLinkGenerate($reg['Id'],"UsuarioUnidadView.php?Id=".$reg['Id']);
 		$ColumnDescription = UnidadTranslateToCodigo($reg['IdUnidad']);
 		DatumLinkGenerate($ColumnDescription, "UnidadView.php?Id=".$reg['IdUnidad']);
-		$ColumnDescription = UnidadTranslate($reg['IdUnidad']);
+		//$ColumnDescription = UnidadTranslate($reg['IdUnidad']);
+		$ColumnDescription = $reg['UnidadNombre'];
 		DatumGenerate($ColumnDescription);
-		$ColumnDescription = UserTranslate($reg['IdUser']);
+		//$ColumnDescription = UserTranslate($reg['IdUser']);
+		$ColumnDescription = $reg['UserName'];
 		DatumLinkGenerate($ColumnDescription, "UserView.php?Id=".$reg['IdUser']);
+		DatumGenerate($reg['DateTimeLastLogin']);
 		RowClose();
 	}
 
