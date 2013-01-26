@@ -37,7 +37,12 @@
 		RowOpen();
 		DatumGenerate($reg['NombreConsorcio']);
 		DatumGenerate($reg['Nombre']);
-		DatumGenerate($reg['Descripcion']);
+		
+		$descripcion = $reg['Descripcion'];
+		if (strlen($descripcion) > 30)
+			$descripcion = substr($descripcion, 0, 27) . "...";
+	
+		DatumGenerate($descripcion);
 		DatumGenerate($reg['NombreArchivo']);
 		DatumLinkGenerate('Bajar Documento', "DocumentoDownload.php?Uuid=".$reg['Uuid']);
 		RowClose();
