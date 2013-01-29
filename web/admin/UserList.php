@@ -17,9 +17,9 @@
 
 	DbConnect();
 
-	$rs = UserGetListView();
+	$rs = UserGetListView('','UserName');
 
-	$titles = array('Id', 'Código', 'Nombre', 'Apellido', 'Correo Electrónico', 'Ultimo Ingreso', 'Verificado');
+	$titles = array('Id', 'Código', 'Nombre', 'Apellido', 'Ultimo Ingreso');
 
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
@@ -37,9 +37,7 @@
 		DatumGenerate($reg['UserName']);
 		DatumGenerate($reg['FirstName']);
 		DatumGenerate($reg['LastName']);
-		DatumGenerate($reg['Email']);
 		DatumGenerate($reg['DateTimeLastLogin']);
-		DatumGenerate($reg['Verified']);
 		RowClose();
 	}
 
