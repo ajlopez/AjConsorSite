@@ -44,9 +44,12 @@
 
 	$sql .= " $Cfg[SqlPrefix]documentosconsorcio set
 		Nombre = '$Nombre' , 
-		Descripcion = '$Descripcion' , 
-		NombreArchivo = '$NombreArchivo' , 
-		IdConsorcio = $IdConsorcio , 
+		Descripcion = '$Descripcion' , ";
+
+	if ($NombreArchivo)
+		$sql .= "	NombreArchivo = '$NombreArchivo' , ";
+	
+	$sql .= " IdConsorcio = $IdConsorcio , 
 		Notas = '$Notas' 		";
 		
 	if (empty($Id) || !empty($Uuid))
