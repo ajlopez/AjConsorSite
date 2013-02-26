@@ -2,6 +2,12 @@
 	$Page->Title = "Ingreso de Usuario";
 	$Page->Prefix = '../';
 
+	include_once($Page->Prefix.'includes/Configuration.inc.php');
+	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
+	
+	if ($Cfg['UserLogin'])
+		PageAbsoluteRedirect($Cfg['UserLogin']);
+	
 	include_once($Page->Prefix.'ajfwk/Forms.inc.php');
 	include_once($Page->Prefix.'ajfwk/Tables.inc.php');
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');

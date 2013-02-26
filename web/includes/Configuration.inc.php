@@ -9,4 +9,6 @@ $Cfg['SqlBase']='ajconsorsite';
 $Cfg['SqlUser']='root';
 $Cfg['SqlPassword']='';
 $Cfg['SqlPrefix']='';
+
+$Cfg['UserLogin'] = 'http://localhost/Inmob/consorcios/Login.php';
 ?>

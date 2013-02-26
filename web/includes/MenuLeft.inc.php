@@ -28,6 +28,13 @@ function MenuLeftOption($text,$link)
 	echo "<br>\n";
 }
 
+function MenuLeftAbsoluteOption($text,$link)
+{
+	echo "&nbsp;";
+	echo "<a target='_top' href='$link' class='menuoption'>$text</a>";
+	echo "<br>\n";
+}
+
 function MenuLeftClose()
 {
 ?>
@@ -68,7 +75,10 @@ function MenuLeftClose()
 	}
 	else {
 		MenuLeftOpen('Usuarios');
-		MenuLeftOption('Ingreso','users/Login.php');
+		if ($Cfg['UserLogin'])
+			MenuLeftAbsoluteOption('Ingreso',$Cfg['UserLogin']);
+		else
+			MenuLeftOption('Ingreso','users/Login.php');
 		MenuLeftOption('Registración','users/Register.php');
 		MenuLeftClose();
 	}

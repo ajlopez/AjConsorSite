@@ -8,6 +8,7 @@ include_once('Events.inc.php');
 function UserControl($link='') {
 	global $PHP_SELF;
 	global $HTTP_SERVER_VARS;
+	global $Cfg;
 
 	$User = SessionGet("CurrentUser");
 	$UserId = $User->Id;
@@ -19,8 +20,13 @@ function UserControl($link='') {
 				$enlace .= "?" . $HTTP_SERVER_VARS["QUERY_STRING"];
 		}
 		SessionPut("UserLink", $link);
-		PageRedirect(PageLogin());
-		exit;
+		
+		if ($Cfg['UserLogin'])
+			PageAbsoluteRedirect($Cfg['UserLogin']);
+		else		
+			PageRedirect(PageLogin());
+
+			exit;
 	}
 }
 
