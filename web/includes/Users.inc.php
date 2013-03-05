@@ -124,10 +124,12 @@ function AdministratorControl($link='') {
 }
 
 function UserLogin($user) {
+	global $Cfg;
+
 	SessionPut("CurrentUser", $user);
-	EventLogin();
+	//EventLogin();
 	DbConnect();
-	DbExecuteUpdate("update users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
+	DbExecuteUpdate("update $Cfg[SqlPrefix]users set DateTimeLastLogin = now(), LoginCount = LoginCount+1 where Id = " . UserId());
 	$rs = UsoMultipleGetListByUser($user->Id);
 	$multiple = DbNextRow($rs);
 	if ($multiple) {

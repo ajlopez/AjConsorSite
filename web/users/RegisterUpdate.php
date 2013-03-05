@@ -41,7 +41,7 @@
 	$IdCountry += 0;
 	$IdGenre += 0;
 
-	$sql = "Insert users set UserName = '$UserName',
+	$sql = "Insert $Cfg[SqlPrefix]users set UserName = '$UserName',
 			Password = Password('$Password'),
 			FirstName = '$FirstName',
 			LastName = '$LastName',
@@ -51,7 +51,7 @@
 
 	mysql_query($sql);
 
-	$user->Id = mysql_insert_id;
+	$user->Id = mysql_insert_id();
 	$user->UserName = $UserName;
 	$user->FirstName = $FirstName;
 	$user->LastName = $LastName;
