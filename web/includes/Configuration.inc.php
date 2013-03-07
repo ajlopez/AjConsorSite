@@ -11,4 +11,5 @@ $Cfg['SqlPassword']='';
 $Cfg['SqlPrefix']='';
 
 $Cfg['UserLogin'] = 'http://localhost/Inmob/consorcios/Login.php';
+$Cfg['UserRegistrationMessage'] = 'Message';
 ?>

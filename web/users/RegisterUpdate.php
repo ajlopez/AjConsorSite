@@ -63,6 +63,5 @@
 	$UserLink = SessionGet("UserLink");
 	SessionRemove("UserLink");
 
-	PageAbsoluteRedirect($UserLink);
-	exit;
+	include('RegisterDone.php');
 ?>

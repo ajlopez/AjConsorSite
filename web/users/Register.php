@@ -1,5 +1,5 @@
 <?
-	$Page->Title = 'Registrarse';
+	$Page->Title = 'Registración';
 	$Page->Prefix = '../';
 	$FileJs = 'utilities.js';
 
