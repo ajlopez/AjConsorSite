@@ -15,8 +15,10 @@
 	include_once($Page->Prefix . 'includes/DocumentoConsorcioFunctions.inc.php');
 	include_once($Page->Prefix . 'includes/DocumentoConsorcioFunctionsEx.inc.php');
 	include_once($Page->Prefix . 'includes/ConsorcioFunctions.inc.php');
+	include_once($Page->Prefix.'includes/EventoFunctionsEx.inc.php');
 
 	DbConnect();
+	EventoWrite('DOCS');
     
     $IdUser = UserId();
     

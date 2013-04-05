@@ -156,3 +156,22 @@ create table reservas (
 		primary key (Id)
 ) TYPE=InnoDB;
 
+
+--
+--		Entity:		Evento
+--		Description:	Evento
+--
+
+
+drop table if exists eventos;
+
+
+create table eventos (
+		Id int NOT NULL auto_increment,
+		Tipo varchar(4),
+		IdParametro int,
+		IdUsuario int,
+		FechaHora datetime,
+		primary key (Id)
+) TYPE=InnoDB;
+

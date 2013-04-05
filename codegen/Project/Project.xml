@@ -15,6 +15,7 @@
 			<Entity Source="Entities/UsuarioUnidad.xml"/>
 			<Entity Source="Entities/UsoMultiple.xml"/>
 			<Entity Source="Entities/Reserva.xml"/>
+			<Entity Source="Entities/Evento.xml"/>
 		</Entities>
 		<Lists>
 			<List Entity="Consorcio" />

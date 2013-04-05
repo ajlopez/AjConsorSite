@@ -61,6 +61,7 @@ function MenuLeftClose()
 		MenuLeftOption('Unidades','admin/UnidadList.php');
 		MenuLeftOption('Documentos','admin/DocumentoConsorcioList.php');
 		MenuLeftOption('Usuarios','admin/UserList.php');
+		MenuLeftOption('Eventos','admin/EventoList.php');
 		MenuLeftClose();
 	}
 	

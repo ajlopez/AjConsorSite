@@ -11,6 +11,7 @@
 	include_once($Page->Prefix.'includes/Users.inc.php');
 	include_once($Page->Prefix.'includes/Enumerations.inc.php');
 	include_once($Page->Prefix.'includes/DocumentoConsorcioFunctions.inc.php');
+	include_once($Page->Prefix.'includes/EventoFunctionsEx.inc.php');
 
 	DbConnect();
     
@@ -20,6 +21,9 @@
     $where = "Uuid = '$Uuid'";
 
 	$rs = DbNextRow(DocumentoConsorcioGetList($where));
+	
+	EventoWrite('DWNL', $rs['Id']);
+	
 	$NombreArchivo = $rs['NombreArchivo'];
     
     $ext = pathinfo($NombreArchivo, PATHINFO_EXTENSION);
