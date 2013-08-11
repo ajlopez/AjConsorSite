@@ -24,17 +24,18 @@ class ConsorcioFunctionsTests extends UnitTestCase {
     }
     
     function testInsert() {
-        $result = ConsorcioInsert('Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
+        $result = ConsorcioInsert('Nombre', 'Codigo', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
         $this->assertNotNull($result);
         $this->assertTrue($result > 0);
     }
     
     function testUpdate() {
-        $id = ConsorcioInsert('Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
-        ConsorcioUpdate($id, 'New Nombre', 'New Domicilio', 'New Ciudad', 'New Provincia', 'New Pais', 'New Notas');
+        $id = ConsorcioInsert('Nombre', 'Codigo', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
+        ConsorcioUpdate($id, 'New Nombre', 'New Codigo', 'New Domicilio', 'New Ciudad', 'New Provincia', 'New Pais', 'New Notas');
         $result = ConsorcioGetById($id);        
         $this->assertNotNull($result);
         $this->assertEqual('New Nombre', $result['Nombre']);
+        $this->assertEqual('New Codigo', $result['Codigo']);
         $this->assertEqual('New Domicilio', $result['Domicilio']);
         $this->assertEqual('New Ciudad', $result['Ciudad']);
         $this->assertEqual('New Provincia', $result['Provincia']);
@@ -42,7 +43,7 @@ class ConsorcioFunctionsTests extends UnitTestCase {
     }
     
     function testDelete() {
-        $id = ConsorcioInsert('Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
+        $id = ConsorcioInsert('Nombre', 'Codigo', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
         $result = ConsorcioGetById($id);
         $this->assertTrue($result);
         ConsorcioDelete($id);
@@ -51,10 +52,11 @@ class ConsorcioFunctionsTests extends UnitTestCase {
     }
 
     function testGetById() {
-        $id = ConsorcioInsert('Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
+        $id = ConsorcioInsert('Nombre', 'Codigo', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
         $result = ConsorcioGetById($id);
         $this->assertNotNull($result);
         $this->assertEqual('Nombre', $result['Nombre']);
+        $this->assertEqual('Codigo', $result['Codigo']);
         $this->assertEqual('Domicilio', $result['Domicilio']);
         $this->assertEqual('Ciudad', $result['Ciudad']);
         $this->assertEqual('Provincia', $result['Provincia']);
@@ -62,7 +64,7 @@ class ConsorcioFunctionsTests extends UnitTestCase {
     }
 
     function testGetByNonexistentId() {
-        $id = ConsorcioInsert('Nombre', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
+        $id = ConsorcioInsert('Nombre', 'Codigo', 'Domicilio', 'Ciudad', 'Provincia', 'Pais', 'Notas');
         $result = ConsorcioGetById(-1);
         $this->assertFalse($result);
     }

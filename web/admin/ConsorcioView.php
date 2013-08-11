@@ -52,7 +52,7 @@
 <a href="ConsorcioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="ConsorcioConfirmDelete.php?Id=<? echo $Id; ?>">Elimina</a>
 </div>
 <?
 	TableOpen('','80%');

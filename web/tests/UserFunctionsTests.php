@@ -24,14 +24,14 @@ class UserFunctionsTests extends UnitTestCase {
     }
     
     function testInsert() {
-        $result = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas');
+        $result = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas', 0);
         $this->assertNotNull($result);
         $this->assertTrue($result > 0);
     }
     
     function testUpdate() {
-        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas');
-        UserUpdate($id, 'New UserName', 'New Password', 'New FirstName', 'New LastName', 'New Email', 'New Genre', 0, 0, 0, 0, 0, 0, 'New Notas');
+        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas', 0);
+        UserUpdate($id, 'New UserName', 'New Password', 'New FirstName', 'New LastName', 'New Email', 'New Genre', 0, 0, 0, 0, 0, 0, 'New Notas', 0);
         $result = UserGetById($id);        
         $this->assertNotNull($result);
         $this->assertEqual('New UserName', $result['UserName']);
@@ -43,7 +43,7 @@ class UserFunctionsTests extends UnitTestCase {
     }
     
     function testDelete() {
-        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas');
+        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas', 0);
         $result = UserGetById($id);
         $this->assertTrue($result);
         UserDelete($id);
@@ -52,7 +52,7 @@ class UserFunctionsTests extends UnitTestCase {
     }
 
     function testGetById() {
-        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas');
+        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas', 0);
         $result = UserGetById($id);
         $this->assertNotNull($result);
         $this->assertEqual('UserName', $result['UserName']);
@@ -64,7 +64,7 @@ class UserFunctionsTests extends UnitTestCase {
     }
 
     function testGetByNonexistentId() {
-        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas');
+        $id = UserInsert('UserName', 'Password', 'FirstName', 'LastName', 'Email', 'Genre', 0, 0, 0, 0, 0, 0, 'Notas', 0);
         $result = UserGetById(-1);
         $this->assertFalse($result);
     }

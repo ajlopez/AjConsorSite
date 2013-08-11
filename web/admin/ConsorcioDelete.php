@@ -8,15 +8,14 @@
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
 	include_once($Page->Prefix.'ajfwk/Pages.inc.php');
 	include_once($Page->Prefix.'ajfwk/Session.inc.php');
+    include_once($Page->Prefix . 'includes/ConsorcioFunctionsEx.inc.php');
 
 	if (!isset($Id))
 		PageExit();
 
-	$sql = "delete from $Cfg[SqlPrefix]consorcios where Id = $Id";
-
 	DbConnect();
-	DbExecuteUpdate($sql);
-	DbDisconnect();
+    ConsorcioDeleteEx($Id);
+    DbDisconnect();
 
 	$Link = SessionGet("ConsorcioDeleteLink");
 	SessionRemove("ConsorcioDeleteLink");
