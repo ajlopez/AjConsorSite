@@ -58,7 +58,7 @@
   
 </div>
 
-<?php
+<?phpphp
 	include_once('includes/Footer.inc.php');
 ?>
 

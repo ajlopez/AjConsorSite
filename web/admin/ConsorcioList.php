@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Consorcios';
 
 	if (!$Page->Prefix)
@@ -28,7 +29,7 @@
 <a href="ConsorcioForm.php">Nuevo Consorcio...</a>
 </div>
 
-<?		
+<?php	
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
@@ -46,7 +47,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

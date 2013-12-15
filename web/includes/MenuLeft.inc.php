@@ -1,9 +1,9 @@
-<?
+<?php
 	include_once($Page->Prefix.'includes/Users.inc.php');
 ?>
 <br>
 
-<?
+<?php
 function MenuLeftOpen($title)
 {
 ?>
@@ -11,12 +11,12 @@ function MenuLeftOpen($title)
 <table class="menu" cellspacing=1 cellpadding=2>
 <tr>
 <td align=center class="menutitle">
-<? echo $title; ?>
+<?php echo $title; ?>
 </td>
 </tr>
 <tr>
 <td valign="top" class="menuoption">
-<?
+<?php
 }
 
 function MenuLeftOption($text,$link)
@@ -46,11 +46,11 @@ function MenuLeftClose()
 
 </div>
 
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 	MenuLeftOpen($Cfg['SiteName']);
 	MenuLeftOption('Inicio','index.php');
 	MenuLeftClose();

@@ -1,9 +1,12 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Consorcio';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
 	include_once('./Security.inc.php');
+    
 	include_once($Page->Prefix.'ajfwk/GetParameters.inc.php');
 	include_once($Page->Prefix.'ajfwk/Database.inc.php');
 	include_once($Page->Prefix.'ajfwk/Errors.inc.php');
@@ -49,12 +52,12 @@
 <a href="ConsorcioList.php">Consorcios</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="ConsorcioForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioConfirmDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="ConsorcioConfirmDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
-<?
+<?php
 	TableOpen('','80%');
 	FieldStaticGenerate("Código",$Codigo);
 	FieldStaticGenerate("Nombre",$Nombre);
@@ -73,7 +76,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsUnidades = UnidadGetByConsorcio($Id);
 
 	$titles = array('Código', 'Nombre', 'Piso', 'Nro/Letra', 'Notas', 'Usuarios');
@@ -119,7 +122,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsDocumentosConsorcio = DocumentoConsorcioGetList("IdConsorcio = $Id", "Nombre desc");
 
 	$titles = array('Id', 'Nombre', 'Descripción', 'Nombre de Archivo', 'Código Interno', 'Notas');
@@ -154,7 +157,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsUsuarioUnidades = UsuarioUnidadGetByConsorcioEx($Id);
 
 	$titles = array('Id', 'Unidad', 'Nombre', 'Usuario', 'Ultimo Ingreso');
@@ -190,7 +193,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsUsoMultiples = UsoMultipleGetByConsorcio($Id);
 
 	$titles = array('Código', 'Nombre', 'Notas');
@@ -211,7 +214,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
