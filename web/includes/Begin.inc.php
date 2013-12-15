@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once($Page->Prefix.'ajfwk/Configuration.inc.php');
 	include_once($Page->Prefix.'ajfwk/Session.inc.php');
 	include_once($Page->Prefix.'ajfwk/Cache.inc.php');
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>css/bootstrap.css">
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>css/docs.css">
 <link rel="stylesheet" href="<? echo $Page->Prefix; ?>styles/styleex.css">
-<?
+<?php
 	if ($Page->FileJs)
 		echo "<script language='javascript' src='{$Page->Prefix}js/{$Page->FileJs}'></script>\n";
 		

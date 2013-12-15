@@ -1,7 +1,11 @@
 <?php
+    include_once('./Configuration.inc.php');
+	include_once('./Security.inc.php');
+    
     $Page = new StdClass();
 	$Page->Title = '';
-	include_once('./Security.inc.php');
+	$Page->Prefix = '';
+    
 	include_once($Page->Prefix.'includes/Configuration.inc.php');
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>

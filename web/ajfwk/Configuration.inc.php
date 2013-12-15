@@ -1,4 +1,4 @@
-<?
+<?php
 
 $Cfg['Host'] = $HTTP_SERVER_VARS["HTTP_HOST"];
 
