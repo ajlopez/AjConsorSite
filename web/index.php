@@ -1,4 +1,5 @@
-<?
+<?php
+    $Page = new StdClass();
 	$Page->Title = '';
 	include_once('./Security.inc.php');
 	include_once($Page->Prefix.'includes/Configuration.inc.php');
@@ -53,7 +54,7 @@
   
 </div>
 
-<?
+<?php
 	include_once('includes/Footer.inc.php');
 ?>
 

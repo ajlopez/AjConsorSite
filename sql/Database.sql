@@ -25,7 +25,7 @@ create table consorcios (
 		Pais varchar(200),
 		Notas text,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -46,7 +46,7 @@ create table unidades (
 		IdConsorcio int,
 		Notas text,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -75,7 +75,7 @@ create table users (
 		Notas text,
 		NoReserva tinyint(4),
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -96,7 +96,7 @@ create table documentosconsorcio (
 		IdConsorcio int,
 		Notas text,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -114,7 +114,7 @@ create table userunidades (
 		IdConsorcio int,
 		IdUnidad int,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -133,7 +133,7 @@ create table usomultiples (
 		IdConsorcio int,
 		Notas text,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -154,7 +154,7 @@ create table reservas (
 		IdUsoMultiple int,
 		IdUser int,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
 
 --
@@ -173,5 +173,5 @@ create table eventos (
 		IdUsuario int,
 		FechaHora datetime,
 		primary key (Id)
-) TYPE=InnoDB;
+) ENGINE=InnoDB;
 
