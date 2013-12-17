@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Documento de Consorcio';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -41,16 +42,16 @@
 <a href="DocumentoConsorcioList.php">Documentos de Consorcio</a>
 &nbsp;
 &nbsp;
-<a href="DocumentoConsorcioForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="DocumentoConsorcioForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="DocumentoConsorcioDownload.php?Id=<? echo $Id; ?>">Baja Documento</a>
+<a href="DocumentoConsorcioDownload.php?Id=<?php echo $Id; ?>">Baja Documento</a>
 &nbsp;
 &nbsp;
-<a href="DocumentoConsorcioDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="DocumentoConsorcioDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('','80%');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Nombre",$Nombre);

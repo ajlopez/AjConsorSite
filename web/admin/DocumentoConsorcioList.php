@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Documentos de Consorcio';
 
 	if (!$Page->Prefix)
@@ -32,7 +33,7 @@
 <a href="DocumentoConsorcioFormEx.php">Subir Varios Documentos de Consorcio</a>
 </div>
 
-<?		
+<?php	
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
@@ -55,7 +56,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Actualiza Documento de Consorcio';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -44,24 +45,24 @@
 <a href="DocumentoConsorcioList.php">Documentos de Consorcio</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a href="DocumentoConsorcioView.php?Id=<? echo $Id; ?>">Documento de Consorcio</a>
+<a href="DocumentoConsorcioView.php?Id=<?php echo $Id; ?>">Documento de Consorcio</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	}
 ?>
 </div>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="DocumentoConsorcioUpdate.php" method=post enctype="multipart/form-data">
 
-<?
+<?php
 	TableOpen();
 	
 	if (!$IsNew)
@@ -78,7 +79,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew) 
     {
 		FieldIdGenerate($Id);
@@ -88,7 +89,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

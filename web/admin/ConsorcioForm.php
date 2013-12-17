@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Actualiza Consorcio';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -44,25 +45,25 @@
 <a href="ConsorcioList.php">Consorcios</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a href="ConsorcioView.php?Id=<? echo $Id; ?>">Consorcio</a>
+<a href="ConsorcioView.php?Id=<?php echo $Id; ?>">Consorcio</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	}
 ?>
 </div>
 
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="ConsorcioUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -79,14 +80,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
