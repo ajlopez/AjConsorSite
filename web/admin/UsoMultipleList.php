@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'UsoMultiples';
 
 	if (!$Page->Prefix)
@@ -29,7 +30,7 @@
 <a href="UsoMultipleForm.php">New UsoMultiple...</a>
 </div>
 
-<?		
+<?php
 	TableOpen($titles,"98%");
 
 	while ($reg=DbNextRow($rs)) {
@@ -46,7 +47,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

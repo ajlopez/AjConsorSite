@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Actualiza Uso Múltiple';
 	
 	if (!$Page->Prefix)
@@ -43,25 +44,25 @@
 <a href="UsoMultipleList.php">Usos Múltiples</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a href="UsoMultipleView.php?Id=<? echo $Id; ?>">Uso Múltiple</a>
+<a href="UsoMultipleView.php?Id=<?php echo $Id; ?>">Uso Múltiple</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	}
 ?>
 </div>
 
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UsoMultipleUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -75,14 +76,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

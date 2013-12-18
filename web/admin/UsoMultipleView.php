@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Uso Múltiple';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -41,13 +42,13 @@
 <a href="UsoMultipleList.php">Usos Múltiples</a>
 &nbsp;
 &nbsp;
-<a href="UsoMultipleForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="UsoMultipleForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="UsoMultipleDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="UsoMultipleDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '80%');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Nombre",$Nombre);
@@ -66,7 +67,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsReservas = ReservaGetByUsoMultiple($Id);
 
 	$titles = array('Id', 'Desde Fecha', 'Desde Hora', 'Hasta Fecha', 'Hasta Hora', 'Usuario');
@@ -91,7 +92,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
