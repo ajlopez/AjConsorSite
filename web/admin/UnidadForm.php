@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Actualiza Unidad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -44,25 +45,25 @@
 <a href="UnidadList.php">Unidades</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a href="UnidadView.php?Id=<? echo $Id; ?>">Unidad</a>
+<a href="UnidadView.php?Id=<?php echo $Id; ?>">Unidad</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	}
 ?>
 </div>
 
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UnidadUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -78,14 +79,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

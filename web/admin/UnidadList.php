@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
 	$Page->Title = 'Unidades';
 
 	if (!$Page->Prefix)
@@ -29,7 +30,7 @@
 <a href="UnidadForm.php">Nueva Unidad...</a>
 </div>
 
-<?		
+<?php
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
@@ -47,7 +48,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>
