@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Actualiza Usuario Unidad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -49,25 +51,24 @@
 <a href="UnidadView.php?Id=<?= $IdUnidad ?>">Unidad</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a href="UsuarioUnidadView.php?Id=<? echo $Id; ?>">Usuario Unidad</a>
+<a href="UsuarioUnidadView.php?Id=<?php echo $Id; ?>">Usuario Unidad</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	}
 ?>
 </div>
 
-
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UsuarioUnidadUpdateEx.php" method=post>
 
-<?
+<?php
 	TableOpen('', '400px');
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -86,7 +87,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

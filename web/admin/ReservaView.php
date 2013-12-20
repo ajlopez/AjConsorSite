@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Reserva';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -41,13 +43,13 @@
 <a href="ReservaList.php">Reservas</a>
 &nbsp;
 &nbsp;
-<a href="ReservaForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="ReservaForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ReservaDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="ReservaDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '80%');
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Desde Fecha",$DesdeFecha);
@@ -59,7 +61,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
