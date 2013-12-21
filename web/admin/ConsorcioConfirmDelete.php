@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Confirma Eliminar Consorcio';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -49,12 +51,12 @@
 <a href="ConsorcioList.php">Consorcios</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioView.php?Id=<? echo $Id; ?>">Cancela Elininación</a>
+<a href="ConsorcioView.php?Id=<?php echo $Id; ?>">Cancela Elininación</a>
 &nbsp;
 &nbsp;
-<a href="ConsorcioDelete.php?Id=<? echo $Id; ?>">Confirma Eliminación</a>
+<a href="ConsorcioDelete.php?Id=<?php echo $Id; ?>">Confirma Eliminación</a>
 </div>
-<?
+<?php
 	TableOpen('','80%');
 	FieldStaticGenerate("Código",$Codigo);
 	FieldStaticGenerate("Nombre",$Nombre);
@@ -66,7 +68,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

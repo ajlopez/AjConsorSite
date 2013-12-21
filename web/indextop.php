@@ -1,4 +1,5 @@
-<?
+<?php
+    include_once('./Configuration.inc.php');
 	$Page->Title = '';
 	$Page->Prefix = 'consorcios/';
 	include_once('./Security.inc.php');
@@ -54,7 +55,7 @@
   
 </div>
 
-<?
+<?php
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
 

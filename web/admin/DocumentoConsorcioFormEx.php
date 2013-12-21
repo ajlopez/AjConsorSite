@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Documento de Consorcio';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -34,14 +36,14 @@
 &nbsp;
 </div>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="DocumentoConsorcioUpdateEx.php" method=post enctype="multipart/form-data">
 <div class='row-fluid'>
 
-<?
+<?php
 	echo "<div style='float:left'>\n";
 	TableOpen();
 	
@@ -110,7 +112,7 @@
 </form>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

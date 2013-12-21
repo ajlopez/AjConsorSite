@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Usuario';
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -51,19 +54,19 @@
 <a href="UserList.php">Usuarios</a>
 &nbsp;
 &nbsp;
-<a href="UserForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="UserForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="UserLoginAs.php?Id=<? echo $Id; ?>">Ingresar como este Usuario</a>
+<a href="UserLoginAs.php?Id=<?php echo $Id; ?>">Ingresar como este Usuario</a>
 &nbsp;
 &nbsp;
-<a href="UserPasswordForm.php?Id=<? echo $Id; ?>">Cambia Contraseña</a>
+<a href="UserPasswordForm.php?Id=<?php echo $Id; ?>">Cambia Contraseña</a>
 &nbsp;
 &nbsp;
-<a href="UserDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="UserDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen();
 	FieldStaticGenerate("Id",$Id);
 	FieldStaticGenerate("Código",$UserName);
@@ -90,7 +93,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsUsuarioUnidades = UsuarioUnidadGetByUser($Id);
 
 	$titles = array('Id', 'Consorcio', 'Unidad', 'Nombre', 'Usuario');
@@ -117,7 +120,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

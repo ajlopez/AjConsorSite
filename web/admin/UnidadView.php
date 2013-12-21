@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Unidad';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -43,13 +45,13 @@
 <a href="UnidadList.php">Unidades</a>
 &nbsp;
 &nbsp;
-<a href="UnidadForm.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="UnidadForm.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="UnidadDelete.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="UnidadDelete.php?Id=<?php echo $Id; ?>">Elimina</a>
 </div>
 
-<?
+<?php
 	TableOpen('','80%');
 	FieldStaticGenerate("Código",$Codigo);
 	FieldStaticGenerate("Nombre",$Nombre);
@@ -71,7 +73,7 @@
 <br />
 
 <div>
-<?
+<?php
 	$rsUsuarioUnidades = UsuarioUnidadGetByUnidad($Id);
 
 	$titles = array('Id', 'Usuario');
@@ -92,7 +94,7 @@
 ?>
 </div>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

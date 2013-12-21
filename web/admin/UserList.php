@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Usuarios';
 
 	if (!$Page->Prefix)
@@ -28,7 +30,7 @@
 <a href="UserForm.php">Nuevo Usuario...</a>
 </div>
 
-<?		
+<?php
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {

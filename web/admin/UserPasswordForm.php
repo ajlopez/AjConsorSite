@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Cambia Contraseña';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -42,19 +44,19 @@
 <a href="UserList.php">Usuarios</a>
 &nbsp;
 &nbsp;
-<a href="UserView.php?Id=<? echo $Id; ?>">Usuario</a>
+<a href="UserView.php?Id=<?php echo $Id; ?>">Usuario</a>
 &nbsp;
 &nbsp;
 </div>
 
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UserPasswordUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	FieldStaticGenerate("Id",$Id);
 
@@ -72,7 +74,7 @@
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
