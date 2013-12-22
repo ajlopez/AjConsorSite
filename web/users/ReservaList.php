@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Mis Reservas';
 
 	if (!$Page->Prefix)
@@ -31,7 +33,7 @@
 <a href="ReservaForm.php">Nueva Reserva...</a>
 </div>
 
-<?		
+<?php	
 	TableOpen($titles,"98%");
 
 	while ($reg=DbNextRow($rs)) {
@@ -49,7 +51,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

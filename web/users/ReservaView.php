@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Mi Reserva';
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -47,13 +50,13 @@
 <a href="ReservaListEx.php?FechaDesde=<?= $DesdeFecha ?>">Mis Reservas</a>
 &nbsp;
 &nbsp;
-<a href="ReservaForm.php?Id=<? echo $Id; ?>">Modifica</a>
+<a href="ReservaForm.php?Id=<?php echo $Id; ?>">Modifica</a>
 &nbsp;
 &nbsp;
-<a href="ReservaDelete.php?Id=<? echo $Id; ?>&DesdeFecha=<?= $DesdeFecha ?>">Cancela</a>
+<a href="ReservaDelete.php?Id=<?php echo $Id; ?>&DesdeFecha=<?= $DesdeFecha ?>">Cancela</a>
 </div>
 
-<?
+<?php
 	TableOpen('', '80%');
 	FieldStaticGenerate("Desde Fecha",$DesdeFecha);
 	FieldStaticGenerate("Desde Hora",$DesdeHora);
@@ -63,7 +66,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

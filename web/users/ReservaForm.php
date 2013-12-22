@@ -1,5 +1,8 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Modifica Reserva';
+    
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
 
@@ -49,24 +52,24 @@
 <a href="ReservaListEx.php">Mis Reservas</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	if (!$IsNew) {
 ?>
-<a href="ReservaView.php?Id=<? echo $Id; ?>">Mi Reserva</a>
+<a href="ReservaView.php?Id=<?php echo $Id; ?>">Mi Reserva</a>
 &nbsp;
 &nbsp;
-<?
+<?php
 	}
 ?>
 </div>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="ReservaUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	if (!$IsNew)
 		FieldStaticGenerate("Id",$Id);
@@ -81,14 +84,14 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	if (!$IsNew)
 		FieldIdGenerate($Id);
 ?>
 
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

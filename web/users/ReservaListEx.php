@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Mis Reservas';
 
 	if (!$Page->Prefix)
@@ -82,12 +84,12 @@
 }
 </style>
 
-<?
+<?php
 	if (UserHasManyMultiple()) {
 ?>
 <h3>Reservas de:</h3>
 <div>
-<?
+<?php
 		$nsum=0;
 		$rs = UsoMultipleGetListByUser(UserId());
 		while ($reg=DbNextRow($rs)) {
@@ -95,11 +97,11 @@
 ?>
 <a href="#num<?= $nsum ?>"><?= $reg['Nombre'] ?></a>
 <br/>
-<?		
+<?php	
 		}
 ?>
 </div>
-<?		
+<?php	
 	}
 	
 	function comparareservas($res1, $res2)
@@ -168,7 +170,7 @@
 <table class="table-striped table-bordered hours">
 <tr>
 <th></th>
-<?
+<?php
 	$nreserva = 0;
 	
 	if ($nreserva < count($reservas))
@@ -182,10 +184,10 @@
 <br/>
 <?= DateToWeekDaySpanishName($fecha) ?>
 </th>
-<?		
+<?php	
 	}
 ?>
-<?
+<?php
 	foreach ($Hours as $nh => $hour)
 	{
 		echo "<tr>\n";
@@ -241,11 +243,11 @@
 	}
 ?>
 </table>
-<?        
+<?php     
 	}
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

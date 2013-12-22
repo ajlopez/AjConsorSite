@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Mis Documentos';
 
 	if (!$Page->Prefix)
@@ -32,7 +34,7 @@
 	include_once($Page->Prefix . 'includes/Header.inc.php');
 ?>
 
-<?		
+<?php
 	TableOpen($titles);
 
 	while ($reg=DbNextRow($rs)) {
@@ -53,7 +55,7 @@
 	TableClose();
 ?>
 
-<?
+<?php
 	include_once($Page->Prefix . 'includes/Footer.inc.php');
 	DbDisconnect();
 ?>

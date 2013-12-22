@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+    
 	$Page->Title = 'Actualiza Contraseña';
 	if (!$Page->Prefix)
 		$Page->Prefix = '../';
@@ -19,13 +21,13 @@
 	include_once($Page->Prefix.'includes/Header.inc.php');
 ?>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 <form action="UserPasswordUpdate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 
 	FieldPasswordGenerate("Password", "Contraseña Actual", '', 10, True);
@@ -41,6 +43,6 @@
 
 </form>
 
-<?
+<?php
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>

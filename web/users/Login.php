@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = "Ingreso de Usuario";
 	$Page->Prefix = '../';
 
@@ -19,14 +21,14 @@
 Ingrese su c&oacute;digo de usuario y su contrase&ntilde;a.
 </div>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
 
 <form action="LoginValidate.php" method=post>
 
-<?
+<?php
 	TableOpen();
 	FieldTextGenerate("UserName","Código de Usuario",$Codigo,16);
 	FieldPasswordGenerate("Password","Contraseña",$Contrasenia,16);
@@ -41,7 +43,7 @@ Si no es usuario, puede <a href="Register.php">registrarse</a> gratuitamente en 
 
 </center>
 
-<?
+<?php
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
 

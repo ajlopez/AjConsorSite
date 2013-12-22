@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Registración';
 	$Page->Prefix = '../';
 	$FileJs = 'utilities.js';
@@ -18,7 +20,7 @@ Gracias por registrarse.
 <?= $Cfg['UserRegistrationMessage'] ?>
 </div>
 
-<?
+<?php
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
 

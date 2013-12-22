@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('../Configuration.inc.php');
+
 	$Page->Title = 'Registración';
 	$Page->Prefix = '../';
 	$FileJs = 'utilities.js';
@@ -23,7 +25,7 @@ Tenga en cuenta que su c&oacute;digo y contrase&ntilde;a le ser&aacute;n requeri
 ingresar a las secciones privadas del sitio. Los campos marcados con <font color=red>*</font> son obligatorios.
 </div>
 
-<?
+<?php
 	ErrorRender();
 ?>
 
@@ -31,7 +33,7 @@ ingresar a las secciones privadas del sitio. Los campos marcados con <font color
 function FormValidate(thisform)
 {
 	with (thisform) {
-<?
+<?php
 	if (!$Id) {
 ?>
 		if (IsBlank(UserName.value)) {
@@ -39,7 +41,7 @@ function FormValidate(thisform)
 			Codigo.focus();
 			return false;
 		}
-<?
+<?php
 	}
 ?>
 		if (IsBlank(Password.value)) {
@@ -68,7 +70,7 @@ function FormValidate(thisform)
 </script>
 
 <form action="RegisterUpdate.php" method=post onsubmit="return FormValidate(this);">
-<?
+<?php
 	TableOpen();
 	FieldTextGenerate("UserName","Código de Usuario",$UserName,16,true);
 	FieldPasswordGenerate("Password","Contraseña",$Password,16,true);
@@ -81,7 +83,7 @@ function FormValidate(thisform)
 ?>
 </form>
 
-<?
+<?php
 	DbDisconnect();
 	include_once($Page->Prefix.'includes/Footer.inc.php');
 ?>
